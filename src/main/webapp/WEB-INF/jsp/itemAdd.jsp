@@ -18,16 +18,14 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form  modelAttribute="newItem" class="form-horizontal" enctype="multipart/form-data">
+		<form:form  modelAttribute="item" action="addItem" class="form-horizontal" enctype="multipart/form-data" >
 			<fieldset>
-				<legend>Add new product</legend>
-
-				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
+				<legend>Add new Item</legend>
+	
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="itemId">Item ID:</label>
 					<div class="col-lg-10">
-						<form:input id="itemId" path="itemId" type="text" class="form:input-large"/>
-						<form:errors path="itemId" cssClass="text-danger"/>
+						<form:input id="itemId" path="itemId" class="form:input-large"/>	
 					</div>
 				</div>
 				<div class="form-group">
@@ -36,7 +34,7 @@
 						
 						 <form:select  id="category" path="category" class="form:input-large">
                         <form:option value="0" label= "--Select Category--" />
-                         <form:options items="${categories}" itemLabel="name" itemValue="id" />
+                         <form:options items="${categories}"  />
  		 	
  		 	</form:select>
 						
@@ -46,8 +44,8 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="name">Item Name:</label>
 					<div class="col-lg-10">
-						<form:input id="name" path="name" type="text" class="form:input-large"/>
-						<form:errors path="name" cssClass="text-danger"/>
+						<form:input id="name" path="name"  class="form:input-large"/>
+						
 					</div>
 				</div>
 				<div class="form-group">
@@ -58,19 +56,19 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitPrice"><spring:message code="addProduct.form.unitPrice.label"/></label>
+					<label class="control-label col-lg-2" for="unitPrice">Unit Price:</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
-							<form:errors path="unitPrice" cssClass="text-danger"/>
+							<form:input id="unitPrice" path="unitPrice"  class="form:input-large"/>
+							
 						</div>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
+					<label class="control-label col-lg-2" for="unitsInStock">Number Of Items:</label>
 					<div class="col-lg-10">
-						<form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
+						<form:input id="unitsInStock" path="unitsInStock"  class="form:input-large"/>
 					</div>
 				</div>
 

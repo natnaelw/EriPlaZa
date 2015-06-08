@@ -10,6 +10,14 @@ public class Item {
 		private String description;
 		private String category;
 		private double unitPrice;
+		private MultipartFile  itemImage;
+		private long unitsInStock;
+		private String condition; 
+		
+
+		public Item() {
+			super();
+	}
 		public String getItemId() {
 			return itemId;
 		}
@@ -66,21 +74,15 @@ public class Item {
 			this.condition = condition;
 		}
 
-		public MultipartFile getProductImage() {
-			return productImage;
+		public MultipartFile getItemImage() {
+			return itemImage;
 		}
 
-		public void setProductImage(MultipartFile productImage) {
-			this.productImage = productImage;
+		public void setProductImage(MultipartFile itemImage) {
+			this.itemImage = itemImage;
 		}
 
-		private long unitsInStock;
-		private String condition; 
-		private MultipartFile  productImage;
-
-		public Item() {
-			super();
-	}
+		
 
 
 }
