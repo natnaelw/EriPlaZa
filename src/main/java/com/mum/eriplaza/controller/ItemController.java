@@ -24,6 +24,7 @@ import com.mum.eriplaza.services.CategoryService;
 public class ItemController {
 	@Autowired
 	CategoryService categoryService;
+	String name;
 
 	@RequestMapping(value = "/post")
 	public String inputItem(Model model) {
