@@ -12,6 +12,7 @@ public class CreditCard {
 	private String number;
 	private String expireMonth;
 	private String expireYear;
+	private String cvv;
 
 	public long getId() {
 		return id;
@@ -52,5 +53,15 @@ public class CreditCard {
 	public void setExpireYear(String expYear) {
 		this.expireYear = expYear;
 	}
+
+	public String getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(String cvv) {
+		this.cvv = cvv;
+	}
+	
+	
 
 }
