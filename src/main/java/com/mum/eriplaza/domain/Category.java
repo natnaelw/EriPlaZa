@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 public class Category implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
     @Id
-    private int id;
+    private Long id;
     private String name;
     
     
@@ -18,15 +18,15 @@ public class Category implements Serializable {
 	public Category() {
     }
     
-    public Category(int id, String name) {
+    public Category(Long id, String name) {
         this.id = id;
         this.name = name;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getName() {

@@ -18,16 +18,11 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form  modelAttribute="item" action="addItem" class="form-horizontal" enctype="multipart/form-data" >
+		<form:form  modelAttribute="item" action="add" class="form-horizontal" enctype="multipart/form-data" >
 			<fieldset>
 				<legend>Add new Item</legend>
 	
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="itemId">Item ID:</label>
-					<div class="col-lg-10">
-						<form:input id="itemId" path="itemId" class="form:input-large"/>	
-					</div>
-				</div>
+				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="category">Category:</label>
 					<div class="col-lg-10">
@@ -44,7 +39,7 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="name">Item Name:</label>
 					<div class="col-lg-10">
-						<form:input id="name" path="name"  class="form:input-large"/>
+						<form:input id="name" path="itemName"  class="form:input-large"/>
 						
 					</div>
 				</div>
@@ -75,9 +70,9 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="condition">Condition:</label>
 					<div class="col-lg-10">
-						<form:radiobutton path="condition" value="New" />New 
-						<form:radiobutton path="condition" value="Old" />Old 
-						<form:radiobutton path="condition" value="Refurbished" />Refurbished
+						<form:radiobutton path="itemCondition" value="New" />New 
+						<form:radiobutton path="itemCondition" value="Old" />Old 
+						<form:radiobutton path="itemCondition" value="Refurbished" />Refurbished
 					</div>
 				</div>
 				
