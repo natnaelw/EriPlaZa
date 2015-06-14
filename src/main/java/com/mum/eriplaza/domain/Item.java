@@ -3,6 +3,7 @@ package com.mum.eriplaza.domain;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +20,8 @@ public class Item implements Serializable{
 		private String itemId;	
 		private String name;
 		private String description;
-		private String category;
+		
+		private List<Category> category;
 		private double unitPrice;
 		@JsonIgnore
 		@Transient
