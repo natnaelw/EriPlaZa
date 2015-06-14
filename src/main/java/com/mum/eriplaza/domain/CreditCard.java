@@ -10,8 +10,8 @@ public class CreditCard {
 	
 	private String name;
 	private String number;
-	private String expMonth;
-	private String expYear;
+	private String expireMonth;
+	private String expireYear;
 
 	public long getId() {
 		return id;
@@ -38,19 +38,19 @@ public class CreditCard {
 	}
 
 	public String getExpMonth() {
-		return expMonth;
+		return expireMonth;
 	}
 
 	public void setExpMonth(String expMonth) {
-		this.expMonth = expMonth;
+		this.expireMonth = expMonth;
 	}
 
 	public String getExpYear() {
-		return expYear;
+		return expireYear;
 	}
 
 	public void setExpYear(String expYear) {
-		this.expYear = expYear;
+		this.expireYear = expYear;
 	}
 
 }
