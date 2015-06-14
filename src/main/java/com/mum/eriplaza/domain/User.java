@@ -2,7 +2,9 @@ package com.mum.eriplaza.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -21,8 +23,8 @@ private String phone;
 private String username;
 private String password;
 
-@OneToOne
-@JoinColumn(name = "ADDRESS_ID")
+@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+@JoinColumn(name="addressid")
 private Address address;
 
 //@OneToMany

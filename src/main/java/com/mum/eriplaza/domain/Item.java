@@ -5,17 +5,24 @@ import java.io.Serializable;
 //import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlTransient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 @Entity
 public class Item implements Serializable{
 	 private static final long serialVersionUID = 1L;
 		
+	    @Id
 		private String itemId;	
 		private String name;
 		private String description;
 		private String category;
 		private double unitPrice;
+		@JsonIgnore
+		@Transient
 		private MultipartFile  itemImage;
 		private long unitsInStock;
 		private String condition; 
@@ -79,7 +86,7 @@ public class Item implements Serializable{
 		public void setCondition(String condition) {
 			this.condition = condition;
 		}
-
+        @XmlTransient
 		public MultipartFile getItemImage() {
 			return itemImage;
 		}

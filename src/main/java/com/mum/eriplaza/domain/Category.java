@@ -2,14 +2,26 @@ package com.mum.eriplaza.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+@Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
     private int id;
     private String name;
     
+//    @OneToMany 
+//    private List<Item> items;
   
     
-    public Category() {
+//    public List<Item> getItems() {
+//		return items;
+//	}
+//
+//	public void setItems(List<Item> items) {
+//		this.items = items;
+//	}
+
+	public Category() {
     }
     
     public Category(int id, String name) {
