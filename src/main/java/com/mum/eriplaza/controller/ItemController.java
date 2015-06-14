@@ -14,15 +14,16 @@ import com.mum.eriplaza.services.ItemService;
 
 @Controller
 public class ItemController {
-	@Autowired
-	CategoryService categoryService;
 	
 	@Autowired
-	ItemService itemService;
+	private CategoryService categoryService;
+	
+	@Autowired
+	private ItemService itemService;
 	
 
 
-	@RequestMapping(value = "/add" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/additem" ,method = RequestMethod.GET)
 	public String inputItem(Model model) {
 		
 		Item item = new Item();		
@@ -36,7 +37,7 @@ public class ItemController {
 		return "itemAdd";
 	}
 	
-	 @RequestMapping(value="/add", method = RequestMethod.POST)
+	 @RequestMapping(value="/additem", method = RequestMethod.POST)
 	    public String saveItem(@ModelAttribute Item item)
 	    {
 	    		
