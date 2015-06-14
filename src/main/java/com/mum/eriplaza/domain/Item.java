@@ -24,11 +24,11 @@ public class Item implements Serializable{
 		@OneToMany
 		private List<Category> category;
 		private double unitPrice;
-	//	@JsonIgnore
-	//	@Transient
-	//	private MultipartFile  itemImage;
+		@JsonIgnore
+		@Transient
+		private MultipartFile  itemImage;
 		private long unitsInStock;
-	//	private String condition; 
+		private String itemCondition; 
 		
 
 		public Item() {
@@ -81,21 +81,21 @@ public class Item implements Serializable{
 			this.unitsInStock = unitsInStock;
 		}
 
-//		public String getCondition() {
-//			return condition;
-//		}
-//
-//		public void setCondition(String condition) {
-//			this.condition = condition;
-//		}
-//        @XmlTransient
-//		public MultipartFile getItemImage() {
-//			return itemImage;
-//		}
-//
-//		public void setItemImage(MultipartFile itemImage) {
-//			this.itemImage = itemImage;
-//		}
+		public String getCondition() {
+			return itemCondition;
+		}
+
+		public void setCondition(String itemCondition) {
+			this.itemCondition = itemCondition;
+		}
+        @XmlTransient
+		public MultipartFile getItemImage() {
+			return itemImage;
+		}
+
+		public void setItemImage(MultipartFile itemImage) {
+			this.itemImage = itemImage;
+		}
 
 
 }
