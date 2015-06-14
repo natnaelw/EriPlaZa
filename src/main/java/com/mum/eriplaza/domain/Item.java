@@ -1,12 +1,11 @@
 
 package com.mum.eriplaza.domain;
 
+
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-//import org.codehaus.jackson.annotate.JsonIgnore;
-//@Entity
-//public class Item implements Serializable{
-//	 private static final long serialVersionUID = 1L;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -14,8 +13,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 		
 @Entity
-public class Item{
-	
+public class Item implements Serializable{
+	private static final long serialVersionUID = 1L;
 	    @Id
 		private String itemId;	
 		private String name;
@@ -29,9 +28,9 @@ public class Item{
 //		private String condition; 
 		
 
-//		public Item() {
-//			super();
-//	}
+		public Item() {
+			super();
+	}
 		public String getItemId() {
 			return itemId;
 		}
@@ -95,8 +94,6 @@ public class Item{
 		public void setProductImage(MultipartFile itemImage) {
 			this.itemImage = itemImage;
 		}
-
-		
 
 
 }
