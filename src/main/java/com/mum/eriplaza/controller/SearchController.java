@@ -8,24 +8,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mum.eriplaza.domain.Product;
-import com.mum.eriplaza.services.ProductService;
+import com.mum.eriplaza.domain.Item;
 
 
-@Controller
+//@Controller
 public class SearchController {
 	
-	@Autowired ProductService productService;
-	
-	@RequestMapping("/search/{category}")
-	public String getProductsByCategory(Model model, @PathVariable("category") String category) {
-		List<Product> products = productService.getProductsByCategory(category);
-		
-
-
-		model.addAttribute("products", products);
-		return "products";
-	}
+////	@Autowired ProductService productService;
+//	
+//	@RequestMapping("/search/{category}")
+//	public String getProductsByCategory(Model model, @PathVariable("category") String category) {
+//		List<Item> products = productService.getProductsByCategory(category);
+//		
+//
+//
+//		model.addAttribute("products", products);
+//		return "products";
+//	}
 
 
 }

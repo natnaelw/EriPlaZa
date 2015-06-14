@@ -7,6 +7,8 @@ public class Category implements Serializable {
     private int id;
     private String name;
     
+  
+    
     public Category() {
     }
     
