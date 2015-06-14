@@ -20,7 +20,7 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 	
-	String name;
+
 
 	@RequestMapping(value = "/add" ,method = RequestMethod.GET)
 	public String inputItem(Model model) {
