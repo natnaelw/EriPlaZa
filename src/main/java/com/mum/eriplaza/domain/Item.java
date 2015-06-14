@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -20,7 +21,7 @@ public class Item implements Serializable{
 		private String itemId;	
 		private String name;
 		private String description;
-		
+		@OneToMany
 		private List<Category> category;
 		private double unitPrice;
 		@JsonIgnore
@@ -57,11 +58,10 @@ public class Item implements Serializable{
 			this.description = description;
 		}
 
-		public String getCategory() {
+		public List<Category> getCategory() {
 			return category;
 		}
-
-		public void setCategory(String category) {
+		public void setCategory(List<Category> category) {
 			this.category = category;
 		}
 
