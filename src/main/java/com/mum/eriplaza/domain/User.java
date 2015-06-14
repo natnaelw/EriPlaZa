@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 
+	
+	
 @Id
 private long id;
 
