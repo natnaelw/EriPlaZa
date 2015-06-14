@@ -1,19 +1,17 @@
 
 package com.mum.eriplaza.domain;
 
-import java.io.Serializable;
-//import org.codehaus.jackson.annotate.JsonIgnore;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+//import org.codehaus.jackson.annotate.JsonIgnore;
+//@Entity
+//public class Item implements Serializable{
+//	 private static final long serialVersionUID = 1L;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
-//@Entity
-//public class Item implements Serializable{
-//	 private static final long serialVersionUID = 1L;
 		
 @Entity
 public class Item{
@@ -24,11 +22,11 @@ public class Item{
 		private String description;
 		private String category;
 		private double unitPrice;
-//		@JsonIgnore
-//		@Transient
-//		private MultipartFile  itemImage;
+		@JsonIgnore
+		@Transient
+		private MultipartFile  itemImage;
 		private long unitsInStock;
-		private String condition; 
+//		private String condition; 
 		
 
 //		public Item() {
@@ -82,21 +80,21 @@ public class Item{
 			this.unitsInStock = unitsInStock;
 		}
 
-		public String getCondition() {
-			return condition;
-		}
-
-		public void setCondition(String condition) {
-			this.condition = condition;
-		}
-//        @XmlTransient
-//		public MultipartFile getItemImage() {
-//			return itemImage;
+//		public String getCondition() {
+//			return condition;
 //		}
 //
-//		public void setProductImage(MultipartFile itemImage) {
-//			this.itemImage = itemImage;
+//		public void setCondition(String condition) {
+//			this.condition = condition;
 //		}
+        @XmlTransient
+		public MultipartFile getItemImage() {
+			return itemImage;
+		}
+
+		public void setProductImage(MultipartFile itemImage) {
+			this.itemImage = itemImage;
+		}
 
 		
 
