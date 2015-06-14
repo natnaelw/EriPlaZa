@@ -18,6 +18,7 @@ public class Address {
 		return id;
 	}
 
+	
 	public void setId(long id) {
 		this.id = id;
 	}
