@@ -37,19 +37,19 @@ public class CreditCard {
 		this.number = number;
 	}
 
-	public String getExpMonth() {
+	public String getExpireMonth() {
 		return expireMonth;
 	}
 
-	public void setExpMonth(String expMonth) {
+	public void setExpireMonth(String expMonth) {
 		this.expireMonth = expMonth;
 	}
 
-	public String getExpYear() {
+	public String getExpireYear() {
 		return expireYear;
 	}
 
-	public void setExpYear(String expYear) {
+	public void setExpireYear(String expYear) {
 		this.expireYear = expYear;
 	}
 
