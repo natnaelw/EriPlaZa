@@ -11,10 +11,13 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
-@Entity
-public class Item implements Serializable{
-	 private static final long serialVersionUID = 1L;
+//@Entity
+//public class Item implements Serializable{
+//	 private static final long serialVersionUID = 1L;
 		
+@Entity
+public class Item{
+	
 	    @Id
 		private String itemId;	
 		private String name;
@@ -28,9 +31,9 @@ public class Item implements Serializable{
 		private String condition; 
 		
 
-		public Item() {
-			super();
-	}
+//		public Item() {
+//			super();
+//	}
 		public String getItemId() {
 			return itemId;
 		}
