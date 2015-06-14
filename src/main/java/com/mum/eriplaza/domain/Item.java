@@ -28,7 +28,7 @@ public class Item implements Serializable{
 	//	@Transient
 	//	private MultipartFile  itemImage;
 		private long unitsInStock;
-		private String condition; 
+	//	private String condition; 
 		
 
 		public Item() {
@@ -81,13 +81,13 @@ public class Item implements Serializable{
 			this.unitsInStock = unitsInStock;
 		}
 
-		public String getCondition() {
-			return condition;
-		}
-
-		public void setCondition(String condition) {
-			this.condition = condition;
-		}
+//		public String getCondition() {
+//			return condition;
+//		}
+//
+//		public void setCondition(String condition) {
+//			this.condition = condition;
+//		}
 //        @XmlTransient
 //		public MultipartFile getItemImage() {
 //			return itemImage;
