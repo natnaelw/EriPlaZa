@@ -19,7 +19,7 @@ public class Item implements Serializable{
 	private static final long serialVersionUID = 1L;
 	    @Id
 		private String itemId;	
-		private String name;
+		private String itemName;
 		private String description;
 		@OneToMany
 		private List<Category> category;
@@ -43,11 +43,11 @@ public class Item implements Serializable{
 		}
 
 		public String getName() {
-			return name;
+			return itemName;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setName(String itemName) {
+			this.itemName = itemName;
 		}
 
 		public String getDescription() {
