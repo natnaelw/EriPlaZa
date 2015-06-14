@@ -16,10 +16,10 @@ import com.mum.eriplaza.services.ItemService;
 public class ItemController {
 	
 	@Autowired
-	private CategoryService categoryService;
+	 private CategoryService categoryService;
 	
 	@Autowired
-	private ItemService itemService;
+	 private ItemService itemService;
 	
 
 
