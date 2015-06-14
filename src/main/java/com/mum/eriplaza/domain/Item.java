@@ -21,9 +21,9 @@ public class Item implements Serializable{
 		private String description;
 		private String category;
 		private double unitPrice;
-		@JsonIgnore
-		@Transient
-		private MultipartFile  itemImage;
+//		@JsonIgnore
+//		@Transient
+//		private MultipartFile  itemImage;
 		private long unitsInStock;
 		private String condition; 
 		
@@ -86,14 +86,14 @@ public class Item implements Serializable{
 		public void setCondition(String condition) {
 			this.condition = condition;
 		}
-        @XmlTransient
-		public MultipartFile getItemImage() {
-			return itemImage;
-		}
-
-		public void setProductImage(MultipartFile itemImage) {
-			this.itemImage = itemImage;
-		}
+//        @XmlTransient
+//		public MultipartFile getItemImage() {
+//			return itemImage;
+//		}
+//
+//		public void setProductImage(MultipartFile itemImage) {
+//			this.itemImage = itemImage;
+//		}
 
 		
 

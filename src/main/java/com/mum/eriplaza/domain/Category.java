@@ -3,9 +3,11 @@ package com.mum.eriplaza.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 @Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
+    @Id
     private int id;
     private String name;
     
