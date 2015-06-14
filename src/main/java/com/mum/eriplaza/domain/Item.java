@@ -91,7 +91,7 @@ public class Item implements Serializable{
 			return itemImage;
 		}
 
-		public void setProductImage(MultipartFile itemImage) {
+		public void setItemImage(MultipartFile itemImage) {
 			this.itemImage = itemImage;
 		}
 
