@@ -1,6 +1,8 @@
 
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 //import org.codehaus.jackson.annotate.JsonIgnore;
@@ -14,9 +16,13 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 		
 @Entity
-public class Item{
+public class Item implements Serializable{
 	
-	    @Id
+	    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 604422134205256283L;
+		@Id
 		private String itemId;	
 		private String name;
 		private String description;
