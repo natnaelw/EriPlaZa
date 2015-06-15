@@ -14,6 +14,10 @@ import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.services.CategoryService;
 import com.mum.eriplaza.services.ItemService;
 
+/**
+ * @author Na2
+ *
+ */
 @Controller
 public class SearchController {
 
@@ -22,6 +26,8 @@ public class SearchController {
 	@Autowired
 	ItemService itemService;
 
+	
+	
 	@RequestMapping("/search")
 	public String search(Model model){
 		List<Category> categories = categoryService.findAll();
