@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
@@ -18,7 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class Item implements Serializable{
 	private static final long serialVersionUID = 1L;
 	    @Id
-		private String itemId;	
+	    @GeneratedValue(strategy=GenerationType.AUTO)
+		private Long itemId;	
 		private String itemName;
 		private String description;
 		@OneToMany
@@ -34,19 +37,19 @@ public class Item implements Serializable{
 		public Item() {
 			super();
 	}
-		public String getItemId() {
+		public Long getItemId() {
 			return itemId;
 		}
 
-		public void setItemId(String itemId) {
+		public void setItemId(Long itemId) {
 			this.itemId = itemId;
 		}
 
-		public String getName() {
+		public String getItemName() {
 			return itemName;
 		}
 
-		public void setName(String itemName) {
+		public void setItemName(String itemName) {
 			this.itemName = itemName;
 		}
 
@@ -81,11 +84,11 @@ public class Item implements Serializable{
 			this.unitsInStock = unitsInStock;
 		}
 
-		public String getCondition() {
+		public String getItemCondition() {
 			return itemCondition;
 		}
 
-		public void setCondition(String itemCondition) {
+		public void setItemCondition(String itemCondition) {
 			this.itemCondition = itemCondition;
 		}
         @XmlTransient

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mum.eriplaza.domain.Category;
 import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.services.CategoryService;
 import com.mum.eriplaza.services.ItemService;
@@ -34,16 +35,19 @@ public class ItemController {
 		
 		
 		
-		return "itemAdd";
+		return "itemForm";
 	}
 	
 	 @RequestMapping(value="/additem", method = RequestMethod.POST)
 	    public String saveItem(@ModelAttribute Item item)
 	    {
-	    		
-		 itemService.save(item);
+	//	 Category category = categoryService.getCategory(item.getCategory().getItemId());
+	//     item.setCategory(category);
 		 
-		 return "succesful";
+	    		
+	     itemService.save(item);
+		 
+		 return "successful";
 		 
 	    }
 }
