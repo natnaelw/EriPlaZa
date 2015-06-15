@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Order {
@@ -11,8 +13,11 @@ public class Order {
 	@Id
 	private long id;
 	private long orderId;
+	@OneToMany
 	List<Item> itemsInOrder;
+	@OneToOne
 	private Address shippingAddress;
+	@OneToOne
 	private User user;
 	
 	public long getId() {
