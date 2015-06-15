@@ -1,7 +1,10 @@
 package com.mum.eriplaza.repository;
 
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoryRepository {
-	public List<String> getAll();
+import com.mum.eriplaza.domain.Category;
+@Repository
+public interface CategoryRepository extends CrudRepository<Category,Long>{
+
 }

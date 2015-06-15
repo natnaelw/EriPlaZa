@@ -16,10 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class Item implements Serializable{
 	private static final long serialVersionUID = 1L;
 	    @Id
-		private String itemId;	
+		private long itemId;	
 		private String name;
 		private String description;
-		private String category;
+		private long category;
 		private double unitPrice;
 		@JsonIgnore
 		@Transient
@@ -31,13 +31,27 @@ public class Item implements Serializable{
 		public Item() {
 			super();
 	}
-		public String getItemId() {
+	
+
+		public long getCategory() {
+			return category;
+		}
+
+
+		public void setCategory(long category) {
+			this.category = category;
+		}
+
+
+		public long getItemId() {
 			return itemId;
 		}
 
-		public void setItemId(String itemId) {
+
+		public void setItemId(long itemId) {
 			this.itemId = itemId;
 		}
+
 
 		public String getName() {
 			return name;
@@ -53,14 +67,6 @@ public class Item implements Serializable{
 
 		public void setDescription(String description) {
 			this.description = description;
-		}
-
-		public String getCategory() {
-			return category;
-		}
-
-		public void setCategory(String category) {
-			this.category = category;
 		}
 
 		public double getUnitPrice() {
