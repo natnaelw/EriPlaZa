@@ -7,10 +7,13 @@ import com.mum.eriplaza.domain.Item;
 
 public interface ItemService {
 	
+	public List<Item> findAll();
+	public List<Item> findItemsByCategory(Long categoryId);
 	public Item  save(Item item);
 	
 //	public List<Item> getAllItems(Long id);
 	
 //	public Item find(Long id);
+
 
 }

@@ -19,18 +19,16 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
 	</definition>
 	
-	<definition name="products" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
-		<put-attribute name="heading" value="Products" />
-		<put-attribute name="tagline" value="Available Products" />
-		<put-attribute name="body" value="/WEB-INF/jsp/products.jsp" />
+	 	<definition name="search" extends="baseLayout">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="heading" value="Search for your favourite items here!" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />
 	</definition>
 	
-	<definition name="product" extends="baseLayout">
-		<put-attribute name="title" value="Product" />
-		<put-attribute name="heading" value="Products" />
-		<put-attribute name="tagline" value="Product" />
-		<put-attribute name="body" value="/WEB-INF/jsp/product.jsp" />
+	 	<definition name="items" extends="baseLayout">
+		<put-attribute name="title" value="Items" />
+		<put-attribute name="heading" value="Search for your favourite items here!" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/items.jsp" />
 	</definition>
 	
 	<definition name="addProduct" extends="baseLayout">
@@ -45,13 +43,6 @@
 		<put-attribute name="heading" value="Login" />
 		<put-attribute name="tagline" value="Enter your Credentials" />
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
-	</definition>
-	
-	<definition name="cart" extends="baseLayout">
-		<put-attribute name="title" value="Shopping Cart" />
-		<put-attribute name="heading" value="Cart" />
-		<put-attribute name="tagline" value="your shopping cart" />
-		<put-attribute name="body" value="/WEB-INF/jsp/cart.jsp" />
 	</definition>
 	 	
 	<definition name="productNotFound" extends="baseLayout">

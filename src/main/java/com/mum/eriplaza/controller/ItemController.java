@@ -1,3 +1,4 @@
+
 package com.mum.eriplaza.controller;
 
 
@@ -35,7 +36,7 @@ public class ItemController {
 	public String inputItem(Model model, Item item) {
 		
 		
-		model.addAttribute("categories",categoryService.getAll());	
+		model.addAttribute("categories",categoryService.findAll());	
 		
 		return "itemList";
 	}
@@ -68,3 +69,4 @@ public class ItemController {
 		 return "itemForm";
 }
 }
+

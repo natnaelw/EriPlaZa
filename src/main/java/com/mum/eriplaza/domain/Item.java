@@ -2,6 +2,7 @@
 package com.mum.eriplaza.domain;
 
 
+
 import java.io.Serializable;
 import java.util.List;
 
