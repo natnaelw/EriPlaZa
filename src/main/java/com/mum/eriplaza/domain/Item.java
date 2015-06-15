@@ -1,14 +1,11 @@
-
 package com.mum.eriplaza.domain;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import org.codehaus.jackson.annotate.JsonIgnore;
-//@Entity
-//public class Item implements Serializable{
-//	 private static final long serialVersionUID = 1L;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -17,41 +14,42 @@ import org.springframework.web.multipart.MultipartFile;
 		
 @Entity
 public class Item implements Serializable{
-	
-	    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 604422134205256283L;
-		@Id
-		private String itemId;	
-		private String name;
+	private static final long serialVersionUID = 1L;
+	    @Id
+	    @GeneratedValue(strategy=GenerationType.AUTO)
+		private Long itemId;	
+		private String itemName;
 		private String description;
-		private String category;
+		@ManyToOne
+		private Category category;
 		private double unitPrice;
 		@JsonIgnore
 		@Transient
 		private MultipartFile  itemImage;
 		private long unitsInStock;
-//		private String condition; 
+		private String itemCondition; 
+		
+		
 		
 
-//		public Item() {
-//			super();
-//	}
-		public String getItemId() {
+		public Item() {
+			super();
+	}
+		
+		public Long getItemId() {
 			return itemId;
 		}
 
-		public void setItemId(String itemId) {
+		public void setItemId(Long itemId) {
 			this.itemId = itemId;
 		}
 
-		public String getName() {
-			return name;
+		public String getItemName() {
+			return itemName;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setItemName(String itemName) {
+			this.itemName = itemName;
 		}
 
 		public String getDescription() {
@@ -62,11 +60,10 @@ public class Item implements Serializable{
 			this.description = description;
 		}
 
-		public String getCategory() {
+		public Category getCategory() {
 			return category;
 		}
-
-		public void setCategory(String category) {
+		public void setCategory(Category category) {
 			this.category = category;
 		}
 
@@ -86,23 +83,22 @@ public class Item implements Serializable{
 			this.unitsInStock = unitsInStock;
 		}
 
-//		public String getCondition() {
-//			return condition;
-//		}
-//
-//		public void setCondition(String condition) {
-//			this.condition = condition;
-//		}
+		public String getItemCondition() {
+			return itemCondition;
+		}
+
+		public void setItemCondition(String itemCondition) {
+			this.itemCondition = itemCondition;
+		}
         @XmlTransient
 		public MultipartFile getItemImage() {
 			return itemImage;
 		}
 
-		public void setProductImage(MultipartFile itemImage) {
+		public void setItemImage(MultipartFile itemImage) {
 			this.itemImage = itemImage;
 		}
 
-		
-
 
 }
+
