@@ -18,7 +18,7 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form class="form-horizontal" modelAttribute="item" action="additem"  method="post" enctype="multipart/form-data" >
+		<form:form class="form-horizontal" modelAttribute="item" action="additem"  method="post" >
 			<fieldset>
 				<legend>Add new Item</legend>
 	
@@ -29,7 +29,7 @@
 						
 						 <form:select  id="category" path="category" class="form:input-large">
                         <form:option value="0" label= "--Select Category--" />
-                         <form:options items="${categories}"  />
+                         <form:options items="${categories}" itemLabel="name" itemValue= "name"/>
  		 	
  		 	</form:select>
 						

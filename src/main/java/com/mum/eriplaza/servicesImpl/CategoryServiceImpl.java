@@ -22,8 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
 			return (List<Category>)categoryRepository.findAll();
 		}
 	  	
-	  
-		
+	  	
 	}
 
 
