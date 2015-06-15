@@ -26,8 +26,8 @@ public class Item implements Serializable{
 		private Long itemId;	
 		private String itemName;
 		private String description;
-		@OneToMany
-		private List<Category> category;
+		@ManyToOne
+		private Category category;
 		private double unitPrice;
 		@JsonIgnore
 		@Transient
@@ -66,10 +66,10 @@ public class Item implements Serializable{
 			this.description = description;
 		}
 
-		public List<Category> getCategory() {
+		public Category getCategory() {
 			return category;
 		}
-		public void setCategory(List<Category> category) {
+		public void setCategory(Category category) {
 			this.category = category;
 		}
 

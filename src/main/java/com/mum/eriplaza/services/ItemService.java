@@ -1,9 +1,16 @@
 package com.mum.eriplaza.services;
 
+import java.util.List;
+
+
 import com.mum.eriplaza.domain.Item;
 
 public interface ItemService {
 	
 	public Item  save(Item item);
+	
+//	public List<Item> getAllItems(Long id);
+	
+//	public Item find(Long id);
 
 }
