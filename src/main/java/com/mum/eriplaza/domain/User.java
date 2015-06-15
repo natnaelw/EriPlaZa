@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 
+	
+	
 @Id
 @GeneratedValue
 private long id;
@@ -29,11 +31,17 @@ private String password;
 @JoinColumn(name="addressid")
 private Address address;
 
-//@OneToMany
-//private List<Item> items;
+@OneToMany
+private List<Item> items;
 
 public long getId() {
 	return id;
+}
+public List<Item> getItems() {
+	return items;
+}
+public void setItems(List<Item> items) {
+	this.items = items;
 }
 public void setId(long id) {
 	this.id = id;

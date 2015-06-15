@@ -1,30 +1,40 @@
 package com.mum.eriplaza.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mum.eriplaza.domain.Item;
+import com.mum.eriplaza.services.CategoryService;
+import com.mum.eriplaza.services.ItemService;
 
-
-//@Controller
+/**
+ * @author Na2
+ *
+ */
+@Controller
 public class SearchController {
-	
-////	@Autowired ProductService productService;
-//	
-//	@RequestMapping("/search/{category}")
-//	public String getProductsByCategory(Model model, @PathVariable("category") String category) {
-//		List<Item> products = productService.getProductsByCategory(category);
-//		
-//
-//
-//		model.addAttribute("products", products);
-//		return "products";
-//	}
 
+	@Autowired
+	CategoryService categoryService;
+	@Autowired
+	ItemService itemService;
+
+	
+	
+	@RequestMapping("/search")
+	public String search(Model model){
+		
+		model.addAttribute("categories", categoryService.findAll());
+		return "search";
+	}
+	
+	@RequestMapping(value ="/searchByCategory")
+	public String getProductsByCategory(Model model,@RequestParam("categoryId")String categoryId) {
+		
+		model.addAttribute("items", itemService.findItemsByCategory(Long.parseLong(categoryId)));
+		return "items";
+	}
 
 }

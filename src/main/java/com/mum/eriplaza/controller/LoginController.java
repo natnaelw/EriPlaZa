@@ -35,16 +35,6 @@ public class LoginController {
 	return "login";
 	}
 	
-
-	@RequestMapping("/")
-	public String welcome(Model model) {
-		
-		model.addAttribute("greeting", "EriPlaZa!");
-		model.addAttribute("tagline", "A classified advertisements and shopping website with sections devoted to jobs, housing, personals, for sale, items wanted and services");
-		
-		return "welcome";
-	}
-	
 	
 	@RequestMapping("/registration")
 	public String welcome( UserDto userDto ,Model model) {
