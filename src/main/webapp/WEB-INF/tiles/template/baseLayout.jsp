@@ -28,13 +28,27 @@
     padding: 5px;
     font-type:
  }
+ 
+ 
+ div#menu { 
+    float: left;
+    width: 20%;
+}
+
+div#searchBody { 
+    float: right;
+    width: 80%;
+}
+
+div#footer { 
+    clear: both;
+}
 </style>
 
 </head>
 
 <body>
 
-	<div class="container">
 		<div class="header">
 			<h3 class="text-muted">Welcome to EriPlaZa!</h3>
 			<form action="/eriplaza/search/" method="get">
@@ -63,20 +77,15 @@
 			</p>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span2 nav pull-left">
+		<div id="menu">
 					<tiles:insertAttribute name="navigation" />
-				</div>
-				<div class="span10">
-					<tiles:insertAttribute name="body" />
-				</div>
-			</div>
 		</div>
-		<div class="footer">
+		<div id="searchBody">
+				  <tiles:insertAttribute name="body" />
+		</div>
+		<div id="footer">
 			<tiles:insertAttribute name="footer" />
 		</div>
 
-	</div>
 </body>
 </html>
