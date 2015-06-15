@@ -28,5 +28,20 @@ public class ItemServiceImpl implements ItemService {
 	public List<Item> findItemsByCategory(Long categoryId){
 		return (List<Item>)itemRepo.findItemsByCategory(categoryId);
 	}
+	
+	public Item  save(Item item) {
+		return itemRepo.save(item);
+		
+	}
+	
+//	public List<Item> getAllItems(Long id){
+//		
+//		return itemRepository.getAllItemsById(id);
+//	}
+//	
+//	public Item find(Long id){
+//		 return itemRepository.findOne(id);
+//		
+//	}
 
 }
