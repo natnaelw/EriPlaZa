@@ -69,8 +69,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/eriplaza" />
+
 		<property name="username" value="root" />
-		<property name="password" value="eritas@ird" />
+		<property name="password" value="zeray" />
 	</bean>
 
 
@@ -103,5 +104,6 @@
     -->
    <bean id="persistenceExceptionTranslationPostProcessor"
       class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+       
  
 </beans>
