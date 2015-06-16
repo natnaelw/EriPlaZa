@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form:form modelAttribute="creditCard">
-	<form:errors path="*" cssClass="alert alert-danger" element="div" />
+	<%-- <form:errors path="*" cssClass="alert alert-danger" element="div" /> --%>
 		<div class="">
 			<label class="" for="name"> <spring:message
 					code="creditCard.form.type.label" /></label>

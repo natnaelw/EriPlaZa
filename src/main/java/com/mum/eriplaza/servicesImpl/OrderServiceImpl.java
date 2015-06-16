@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Order validate(long orderId) {
-		Order order = orderRepository.read(orderId);
+		Order order = orderRepository.findOne(orderId);
 		if(order != null){
 			throw new InvalidOrderException(orderId);
 		}
