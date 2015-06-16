@@ -8,6 +8,7 @@ import com.mum.eriplaza.domain.Item;
 public interface ItemService {
 	
 	public List<Item> findAll();
+	public Item find(Long itemId);
 	public List<Item> findItemsByCategory(Long categoryId);
 	public Item  save(Item item);
 	

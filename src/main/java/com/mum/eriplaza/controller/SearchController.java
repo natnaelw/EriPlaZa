@@ -36,5 +36,6 @@ public class SearchController {
 		model.addAttribute("items", itemService.findItemsByCategory(Long.parseLong(categoryId)));
 		return "items";
 	}
+	
 
 }

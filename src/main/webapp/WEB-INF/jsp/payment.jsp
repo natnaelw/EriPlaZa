@@ -9,6 +9,8 @@
 <body>
 	<form:form modelAttribute="creditCard">
 	<form:errors path="*" cssClass="alert alert-danger" element="div" />
+	Item : ${item.itemName}<br/>
+	Price: ${item.unitPrice}
 		<div class="">
 			<label class="" for="name"> <spring:message
 					code="creditCard.form.type.label" /></label>

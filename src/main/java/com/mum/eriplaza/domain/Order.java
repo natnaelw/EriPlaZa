@@ -10,6 +10,12 @@ import javax.persistence.OneToOne;
 @Entity
 public class Order {
 
+	public List<Item> getItemsInOrder() {
+		return itemsInOrder;
+	}
+	public void setItemsInOrder(List<Item> itemsInOrder) {
+		this.itemsInOrder = itemsInOrder;
+	}
 	@Id
 	private long id;
 	private long orderId;
