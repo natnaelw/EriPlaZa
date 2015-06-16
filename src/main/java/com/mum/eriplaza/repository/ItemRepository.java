@@ -13,7 +13,7 @@ import com.mum.eriplaza.domain.Item;
 public interface ItemRepository extends CrudRepository<Item,Long> {
 
 	
-	@Query("SELECT i FROM Item i WHERE i.category = :categoryId")
+	@Query("SELECT i FROM Item i WHERE i.category.id = :categoryId")
 	public List<Item> findItemsByCategory(@Param(value = "categoryId") Long categoryId);
 	
 //	@Query(value = "SELECT  i FROM Item i  INNER JOIN i.user  ur  WHERE ur.id= :id")

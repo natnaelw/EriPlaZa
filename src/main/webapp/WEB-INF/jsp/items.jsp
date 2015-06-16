@@ -14,20 +14,20 @@
 
 		<div class="row">
 			<c:forEach items="${items}" var="item">
-				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+		<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
 <%-- 					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/> --%>
 						<div class="caption">
-							<h3>${item.name}</h3>
+							<h3>${item.itemName}</h3>
 							<p>${item.description}</p>
 							<p>${item.unitPrice}USD</p>
 							<p>Available ${item.unitsInStock} units in stock</p>
 							<p>
-<!-- 								<a -->
-<%-- 									href=" <spring:url value="/products/product?id=${product.productId}" /> " --%>
-<!-- 									class="btn btn-primary"> <span -->
-<!-- 									class="glyphicon-info-sign glyphicon" /></span> Buy -->
-<!-- 								</a> -->
+								<a
+									href="<spring:url value="/items/item?id=${item.itemId}" /> "
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon" /></span> Buy
+								</a>
 							</p>
 
 						</div>
