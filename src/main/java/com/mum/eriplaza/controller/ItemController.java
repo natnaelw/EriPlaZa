@@ -4,6 +4,8 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mum.eriplaza.domain.Item;
@@ -81,6 +81,16 @@ public class ItemController {
 	public String editItem(Model model, @PathVariable("id") long id) {
 
 		// model.addAttribute("item",itemService.find(id));
-		return "itemForm";
+		return "itemEdit";
 	}
-}
+	
+	@RequestMapping(value = "/item_update", method = RequestMethod.POST)
+    public String updateBook(@ModelAttribute Item item) {
+      
+      //  itemService.update(item);
+        return "redirect:/itemList";
+    }
+	}
+	
+	
+

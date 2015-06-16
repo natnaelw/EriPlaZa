@@ -43,5 +43,8 @@ public class ItemServiceImpl implements ItemService {
 		// return itemRepo.findOne(id);
 		
 //	}
+	//public Item update(Item item ){
+	//	return itemRepo.update(item);
+	//}
 
 }
