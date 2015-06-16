@@ -31,10 +31,7 @@
 
 <!-- Comment out login-page through logoinfailed for BASIC -->
 		<security:form-login ></security:form-login>
-		<!-- login-page="/login" 
-               default-target-url="/welcome"    
-               always-use-default-target="false"   
-               authentication-failure-url="/loginfailed"/> -->
+		
         <security:logout logout-success-url="/logout"  logout-url= "/doLogout"/>
         
 		<!-- BY DEFAULT the URL /j_spring_security_logout triggers logout 
