@@ -14,56 +14,30 @@
 
 <title><tiles:insertAttribute name="title" /></title>
 
-<link href="http://getbootstrap.com/dist/css/bootstrap.css"
-	rel="stylesheet">
 
-<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"
-	rel="stylesheet">
+<link href="resources/css/template.css" rel="stylesheet">
 	
-	<style>
- .outer {
-    width: 960px;
-    color: #6A5ACD;
-    background-color: #ADD8E6;
-    padding: 5px;
-    font-type:
- }
- 
- 
- div#menu { 
-    float: left;
-    width: 20%;
-}
-
-div#searchBody { 
-    float: right;
-    width: 80%;
-}
-
-div#footer { 
-    clear: both;
-}
-</style>
-
+	
 </head>
 
 <body>
 
 		<div class="header">
-			<h3 class="text-muted">Welcome to EriPlaZa!</h3>
-			<form action="/eriplaza/search/" method="get">
-				<p align="right">
-					<label for="searchBy"><spring:message code="Search.product.category.label"/>: </label> 
-					<select id="searchBy">
-					    <option value="None">--Select--</option>
-					    <c:forEach var="category" items="${categories}">
-					    <option value="${category.id}">${category.name}</option>
-					    </c:forEach>
-					</select> <input type="submit" id="searchSubmit" value="Search" tabindex="5">
+			<h3 class="text-muted">EriPlaZa</h3>
+			<form action="/eriplaza/searchByCategory" method="get">
+		<p align="right">
+			<label for="searchBy"><spring:message
+					code="Search.product.category.label" />: </label> 
+			<select id="categoryId" name="categoryId">
+				<option value="None">--Select--</option>
+				<c:forEach var="category" items="${categories}">
+					<option value="${category.id}">${category.name}</option>
+				</c:forEach>
+			</select> <input type="submit" id="searchSubmit" value="Search" tabindex="5">
 
-				</p>
+		</p>
 
-			</form>
+	</form>
 
 
 		</div>

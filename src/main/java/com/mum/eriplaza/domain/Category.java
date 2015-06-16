@@ -5,32 +5,43 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 @Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    private Long Id;
     private String name;
     
+    @OneToMany
+    @JoinColumn(name="category_Id")
+    private List<Item> items;
     
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 
 	public Category() {
     }
     
-    public Category(Long id, String name) {
-        this.id = id;
+    public Category(Long Id, String name) {
+        this.Id = Id;
         this.name = name;
     }
     
     public Long getId() {
-        return id;
+        return Id;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long Id) {
+        this.Id = Id;
     }
     public String getName() {
         return name;

@@ -24,6 +24,9 @@ public class ItemServiceImpl implements ItemService {
 		return (List<Item>)itemRepo.findAll();
 	}
 	
+	public Item find(Long itemId){
+		return itemRepo.findOne(itemId);
+	}
 
 	public List<Item> findItemsByCategory(Long categoryId){
 		return (List<Item>)itemRepo.findItemsByCategory(categoryId);
@@ -39,9 +42,12 @@ public class ItemServiceImpl implements ItemService {
 //		return itemRepository.getAllItemsById(id);
 //	}
 //	
-//	public Item find(Long id){
-//		 return itemRepository.findOne(id);
-//		
+	//public Item find(Long id){
+		// return itemRepo.findOne(id);
+		
 //	}
+	//public Item update(Item item ){
+	//	return itemRepo.update(item);
+	//}
 
 }

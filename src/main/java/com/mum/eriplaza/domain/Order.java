@@ -11,10 +11,12 @@ import javax.persistence.OneToOne;
 @Entity
 public class Order implements Serializable{
 
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1778082691828807796L;
+
 	@Id
 	private long id;
 	private long orderId;
@@ -50,6 +52,11 @@ public class Order implements Serializable{
 		this.user = user;
 	}
 	
-	
+	public List<Item> getItemsInOrder() {
+		return itemsInOrder;
+	}
+	public void setItemsInOrder(List<Item> itemsInOrder) {
+		this.itemsInOrder = itemsInOrder;
+	}
 	
 }
