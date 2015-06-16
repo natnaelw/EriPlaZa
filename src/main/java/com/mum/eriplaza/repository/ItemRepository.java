@@ -16,8 +16,8 @@ public interface ItemRepository extends CrudRepository<Item,Long> {
 	@Query("SELECT i FROM Item i WHERE i.category = :categoryId")
 	public List<Item> findItemsByCategory(@Param(value = "categoryId") Long categoryId);
 	
-//	@Query(value = "SELECT  i FROM Item i  INNER JOIN i.user  ur  WHERE ur.id= :id")
-//  List<Item> getAllItemsById(Long Id);
+	//@Query(value = "SELECT  i FROM Item i  INNER JOIN i.user  ur  WHERE ur.id= :userId")
+   // List<Item> getAllItemsById(@Param(value = "userId")Long Id);
 	
 
 }

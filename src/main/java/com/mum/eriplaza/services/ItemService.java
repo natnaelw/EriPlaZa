@@ -13,7 +13,7 @@ public interface ItemService {
 	
 //	public List<Item> getAllItems(Long id);
 	
-//	public Item find(Long id);
+	//public Item find(Long id);
 
 
 }

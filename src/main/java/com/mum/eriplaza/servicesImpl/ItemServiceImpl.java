@@ -39,9 +39,9 @@ public class ItemServiceImpl implements ItemService {
 //		return itemRepository.getAllItemsById(id);
 //	}
 //	
-//	public Item find(Long id){
-//		 return itemRepository.findOne(id);
-//		
+	//public Item find(Long id){
+		// return itemRepo.findOne(id);
+		
 //	}
 
 }

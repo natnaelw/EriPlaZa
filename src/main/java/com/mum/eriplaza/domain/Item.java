@@ -3,8 +3,8 @@ package com.mum.eriplaza.domain;
 
 
 
+
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,22 +12,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
+
+
 		
 @Entity
 public class Item implements Serializable{
+
 	private static final long serialVersionUID = 1L;
+	
+	
 	    @Id
-	    @GeneratedValue(strategy=GenerationType.AUTO)
+	    @GeneratedValue
 		private Long itemId;	
 		private String itemName;
 		private String description;
 		@ManyToOne
+		@JoinColumn(name="category_Id")
 		private Category category;
 		private double unitPrice;
 		@JsonIgnore
@@ -35,9 +40,10 @@ public class Item implements Serializable{
 		private MultipartFile  itemImage;
 		private long unitsInStock;
 		private String itemCondition; 
+		private String itemPath;
 		
 		
-		
+	
 
 		public Item() {
 			super();
@@ -52,7 +58,7 @@ public class Item implements Serializable{
 		}
 
 		public String getItemName() {
-			return itemName;
+		return itemName;
 		}
 
 		public void setItemName(String itemName) {
@@ -105,6 +111,12 @@ public class Item implements Serializable{
 		public void setItemImage(MultipartFile itemImage) {
 			this.itemImage = itemImage;
 		}
+		public String getItemPath() {
+			return itemPath;
+		}
 
+		public void setItemPath(String itemPath) {
+			this.itemPath = itemPath;
+		}
 
 }
