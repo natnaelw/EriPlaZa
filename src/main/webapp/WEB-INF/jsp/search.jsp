@@ -14,7 +14,7 @@
 	<form action="/eriplaza/searchByCategory" method="get">
 		<p >
 			<label for="searchBy"><spring:message
-					code="Search.product.category.label" />: </label> 
+					code="Search.category.label" />: </label> 
 			<select id="categoryId" name="categoryId">
 				<option value="None">--Select--</option>
 				<c:forEach var="category" items="${categories}">
@@ -25,6 +25,6 @@
 		</p>
 
 	</form>
-
+	
 </body>
 </html>
