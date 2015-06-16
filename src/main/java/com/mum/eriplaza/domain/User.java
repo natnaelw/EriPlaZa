@@ -1,5 +1,6 @@
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,10 +12,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class User implements Serializable{
 
 	
 	
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3794885616176050983L;
+
 @Id
 private long id;
 

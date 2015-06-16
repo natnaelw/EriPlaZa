@@ -1,18 +1,26 @@
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Order {
+public class Order implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1778082691828807796L;
 	@Id
 	private long id;
 	private long orderId;
 	List<Item> itemsInOrder;
+	@OneToOne
 	private Address shippingAddress;
+	@OneToOne
 	private User user;
 	
 	public long getId() {

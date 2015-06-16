@@ -1,5 +1,7 @@
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -9,7 +11,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class CreditCard {
+public class CreditCard implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 899550823247576223L;
 	@Id
 	private long id;
 	@NotEmpty(message="{NotEmpty.CreditCard.name.validation}")

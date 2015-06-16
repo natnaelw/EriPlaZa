@@ -14,8 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 		
 @Entity
 public class Item implements Serializable{
-	private static final long serialVersionUID = 1L;
-	    @Id
+	    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7362458197744828109L;
+		@Id
 	    @GeneratedValue(strategy=GenerationType.AUTO)
 		private Long itemId;	
 		private String itemName;
