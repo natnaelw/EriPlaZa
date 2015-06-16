@@ -1,9 +1,9 @@
 package com.mum.eriplaza.controller;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
 
 
 import org.apache.commons.logging.Log;
@@ -38,7 +38,7 @@ public class ItemController {
 		
 		model.addAttribute("categories", categoryService.findAll());
 
-		return "itemForm";
+		return "userPage";
 	}
 
 	@RequestMapping(value = "/additem", method = RequestMethod.POST)
@@ -71,16 +71,19 @@ public class ItemController {
 	}
 
 	@RequestMapping("/myitemlist")
-	public String getItemById(Model model, @RequestParam("id") Long userId) {
+	public String getItemById(Model model , @RequestParam("id") String userId) {
 
-		// model.addAttribute("items", itemService.getAllItems(userId));
+		// model.addAttribute("items", itemService.getAllItems(Long.parseLong(userId));
 		return "itemList";
 	}
 
-	@RequestMapping(value = "/item_edit/{id}", method = RequestMethod.GET)
-	public String editItem(Model model, @PathVariable("id") long id) {
-
-		// model.addAttribute("item",itemService.find(id));
+	@RequestMapping(value = "/edit/item" , method = RequestMethod.GET)
+	public String editItem(Item item ,Model model,@RequestParam("id") String id) {
+		   
+	   model.addAttribute("categories", categoryService.findAll());	   
+	   model.addAttribute("items" ,itemService.find(Long.parseLong(id)));
+	 
+	   
 		return "itemEdit";
 	}
 	
@@ -90,6 +93,8 @@ public class ItemController {
       //  itemService.update(item);
         return "redirect:/itemList";
     }
+	
+	
 	}
 	
 	

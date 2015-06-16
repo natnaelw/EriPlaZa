@@ -15,33 +15,29 @@
 
 <!-- Query Parameter passing  -->
   
-<table>
-<tr>
-    <th>Category</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>price</th>
-    <th>Quantity</th>
-    <th>Condition</th>
-</tr>
-<c:forEach items="${items}" var="item">
-    <tr>
-        <td>${item.category.name}</td>
-        <td>${item.itemName}</td>
-        <td>${item.description}</td>
-        <td>${item.unitPrice}</td>
-        <td>${item.unitsInStock}</td>
-        <td>${item.itemCondition}</td>
-        
-        <!-- Spring:url for handling Spring template/@PathVariable -->
-        <spring:url value="/item_edit/{id}"  var="edit" >
-   				<spring:param name="id" value="${item.itemId}" />
- 		</spring:url>
-         
-        <td><a href="${edit}">Edit</a></td>
-    </tr>
-</c:forEach>
-</table>
-</div>
+
+<div class="row">
+			
+			<c:forEach items="${items}" var="item">
+				<div class="article" style="padding-bottom: 15px">
+					<div class="thumbnail">
+<%-- 					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/> --%>
+						<div class="caption">
+							<h3>${item.itemName}</h3>
+							<p>${item.description}</p>
+							<p>${item.unitPrice}USD</p>
+							<p>Available ${item.unitsInStock} units in stock</p>
+							<p>
+								<a
+									href="<spring:url value="/item_edit/item?id=${item.itemId}" />" class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon" /></span> EDIT
+								</a>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
 </body>
 </html>

@@ -19,6 +19,24 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
 	</definition>
 	
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="EriPlaza" />
+ 		<put-attribute name="heading" value="/WEB-INF/jsp/userPage.jsp" /> 
+ 		<put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
+	</definition>
+	
+		<definition name="itemForm" extends="baseLayout">
+		<put-attribute name="title" value="EriPlaza" />
+<!-- 		<put-attribute name="heading" value="EriPlaZa -Heading" />-->
+ 		<put-attribute name="body" value="/WEB-INF/jsp/itemForm.jsp" />
+	</definition>
+	
+	<definition name="itemEdit" extends="baseLayout">
+		<put-attribute name="title" value="EriPlaza" />
+ <!-- <put-attribute name="heading" value="EriPlaZa -Heading" /> -->
+ 		<put-attribute name="body" value="/WEB-INF/jsp/itemEdit.jsp" />
+	</definition>
+	
 	 	<definition name="search" extends="baseLayout">
 		<put-attribute name="title" value="Search" />
 		<put-attribute name="heading" value="Search for your favourite items here!" />

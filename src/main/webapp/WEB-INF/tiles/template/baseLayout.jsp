@@ -24,7 +24,7 @@
 
 		<div class="header">
 			<h3 class="text-muted">EriPlaZa</h3>
-			<form action="/eriplaza/searchByCategory" method="get">
+			<form class="search" action="/eriplaza/searchByCategory" method="get">
 		<p align="right">
 			<label for="searchBy"><spring:message
 					code="Search.product.category.label" />: </label> 

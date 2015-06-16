@@ -27,7 +27,6 @@ public class Item implements Serializable{
 		private String itemName;
 		private String description;
 		@ManyToOne
-		@JoinColumn(name="category_Id")
 		private Category category;
 		private double unitPrice;
 		@JsonIgnore

@@ -5,23 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> 
+ 
 <title>UsersPage</title>
 </head>
 <body>
-<section>
-		<div class="jumbotron">
-			<div class="container">
-				<p> <a href=" <spring:url value="/additem" />" >POST</a> </h1>
-				<p> <a href=" <spring:url value="/myitemList" />" >MYLIST</a> </h1>
-			</div>	 
- 
-				  
-		</div>	
-	</section>
 
-
+			    <h1>Hi </h1>
+				<h1> <a href=" <spring:url value="/additem" />" >POST</a> </h1>
+				<h1> <a href=" <spring:url value="/myitemList" />" >MYLIST</a> </h1>
 
 </body>
 </html>
