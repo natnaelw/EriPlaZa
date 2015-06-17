@@ -42,14 +42,4 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	// public List<Item> getAllItems(Long id){
-	//
-	// return itemRepository.getAllItemsById(id);
-	// }
-	//
-	// public Item find(Long id){
-	// return itemRepository.findOne(id);
-	//
-	// }
-
 }

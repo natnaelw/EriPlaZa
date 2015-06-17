@@ -1,5 +1,6 @@
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,14 +9,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Order {
+public class Order implements Serializable{
 
-	public List<Item> getItemsInOrder() {
-		return itemsInOrder;
-	}
-	public void setItemsInOrder(List<Item> itemsInOrder) {
-		this.itemsInOrder = itemsInOrder;
-	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1778082691828807796L;
+
 	@Id
 	private long id;
 	private long orderId;
@@ -51,6 +52,11 @@ public class Order {
 		this.user = user;
 	}
 	
-	
+	public List<Item> getItemsInOrder() {
+		return itemsInOrder;
+	}
+	public void setItemsInOrder(List<Item> itemsInOrder) {
+		this.itemsInOrder = itemsInOrder;
+	}
 	
 }

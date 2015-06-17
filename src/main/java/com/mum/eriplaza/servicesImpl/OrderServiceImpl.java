@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mum.eriplaza.domain.Order;
+import com.mum.eriplaza.exception.InvalidOrderException;
 import com.mum.eriplaza.repository.OrderRepository;
 import com.mum.eriplaza.services.OrderService;
 
@@ -14,9 +15,21 @@ public class OrderServiceImpl implements OrderService {
 	private OrderRepository orderRepository;
 
 	@Override
-	public int saveOrder(Order order) {
-		int orderId = orderRepository.saveOrder(order);
-		return orderId;
+	public long saveOrder(Order order) {
+		Order orderReturned = orderRepository.save(order);
+		return orderReturned.getOrderId();
 	}
 
+	@Override
+	public Order validate(long orderId) {
+		Order order = orderRepository.findOne(orderId);
+		if(order != null){
+			throw new InvalidOrderException(orderId);
+		}
+		return null;
+	}
+
+	
+	
+	
 }

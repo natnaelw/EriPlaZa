@@ -19,7 +19,7 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form class="form-horizontal" modelAttribute="item" action="additem"  method="post" >
+		<form:form class="form-horizontal" modelAttribute="item"  enctype="multipart/form-data" >
 			<fieldset>
 				<legend>Add new Item</legend>
 	
@@ -28,9 +28,9 @@
 					<label class="control-label col-lg-2" for="category">Category:</label>
 					<div class="col-lg-10">
 						
-						 <form:select  id="category" path="category" class="form:input-large">
+						 <form:select  id="category" path="category.id" class="form:input-large">
                         <form:option value="0" label= "--Select Category--" />
-                         <form:options items="${categories}" itemLabel="name" itemValue= "name"/>
+                         <form:options items="${categories}" itemLabel="name" itemValue= "id"/>
  		 	
  		 	</form:select>
 						
@@ -88,8 +88,9 @@
 
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"  />
 					</div>
+					<div id="result"></div>
 				</div>
 				
 			</fieldset>
