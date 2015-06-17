@@ -22,9 +22,9 @@
 
 <body>
 
-		<div class="header">
-			<h3 class="text-muted">EriPlaZa</h3>
-			<form action="/eriplaza/searchByCategory" method="get">
+		<div id="header">
+			<h1 class="text-muted">EriPlaZaa</h1>
+			<form id="searchBy" action="/eriplaza/searchByCategory" method="get" >
 		<p align="right">
 			<label for="searchBy"><spring:message
 					code="Search.product.category.label" />: </label> 

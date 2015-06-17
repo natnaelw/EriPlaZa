@@ -49,9 +49,23 @@ div#footer {
     clear: both;
 }
 
+div#header {
+	background-color: #f2f2f2;
+	padding: 2px;
+	
+    clear: both;
+}
+
+div#fieldset{
+	
+	box-sizing: border-box;
+    float: left;
+    width: 60%;
+	padding: 60px;
+	
+}
  .outer {
-    color: #6A5ACD;
-    background-color: #e5eCf9;
+background-color: #e5eCf9;
     padding: 5px;
     font-type:
  }
@@ -60,7 +74,7 @@ div#footer {
  }
  
  .header h3{
- 	text-transform: uppercase;
+/*  	text-transform: uppercase; */
  }
  .article{
     width: 200px;
@@ -81,7 +95,12 @@ div#footer {
  }
  
  form {
- float: right;
+/*  float: right; */
+/*     width: 400px; */
+ }
+ 
+ .searchBy{
+  float: right;
     width: 400px;
  }
   form select{
