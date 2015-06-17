@@ -71,7 +71,7 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/eriplaza" />
 
 		<property name="username" value="root" />
-		<property name="password" value="zeray" />
+		<property name="password" value="eritas@ird" />
 	</bean>
 
 
