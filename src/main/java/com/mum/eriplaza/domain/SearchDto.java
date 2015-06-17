@@ -1,12 +1,35 @@
 package com.mum.eriplaza.domain;
 
-public class SearchDTO {
+public class SearchDto {
 	
 	private String category;
 	private String item;
 	private String searchBy;
 	private String itemCondition;
 	private String user;
+	private String price;
+	
+	
+	
+	public SearchDto() {
+		super();
+	}
+	public SearchDto(String category, String item, String searchBy,
+			String itemCondition, String user, String price) {
+		super();
+		this.category = category;
+		this.item = item;
+		this.searchBy = searchBy;
+		this.itemCondition = itemCondition;
+		this.user = user;
+		this.price = price;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public String getCategory() {
 		return category;
 	}
