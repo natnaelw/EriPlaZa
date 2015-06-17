@@ -1,10 +1,9 @@
 package com.mum.eriplaza.controller;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
-
-
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -35,27 +34,37 @@ public class ItemController {
 
 	@RequestMapping(value = "/additem", method = RequestMethod.GET)
 	public String inputItem(Model model, Item item) {
-		
+
 		model.addAttribute("categories", categoryService.findAll());
 
 		return "itemForm";
 	}
 
 	@RequestMapping(value = "/additem", method = RequestMethod.POST)
-	public String saveItem(@ModelAttribute("item") Item item, BindingResult result ,HttpServletRequest request) {
-
+	public String saveItem(@ModelAttribute("item") Item item,
+			BindingResult result, HttpServletRequest request) throws IllegalStateException, IOException {
 
 		MultipartFile itemImage = item.getItemImage();
-	//  String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		//MultipartFile itemImageCopy = item.getItemImage();
+
+		String rootDirectory = request.getSession().getServletContext()
+				.getRealPath("/");
 
 		if (itemImage != null && !itemImage.isEmpty()) {
-			
-			try {
-				
-			    // itemImage.transferTo(new File(rootDirectory+ "\\resources\\images\\" + item.getItemName() + ".png"));
-				itemImage.transferTo(new File("E:\\resources\\images\\" + item.getItemName() + ".png"));
 
-				 item.setItemPath("E:\\resources\\images\\" + item.getItemName() + ".png");
+			try {
+
+				System.out.println("----" + rootDirectory);
+				
+				
+				item.setItemPath("E:\\resources\\images\\" + item.getItemName()
+						+ ".png");
+//				itemImage.transferTo(new File("E:\\resources\\images\\"
+//						+ item.getItemName() + ".png"));
+				itemImage
+						.transferTo(new File(rootDirectory
+								+ "\\resources\\images\\" + item.getItemName()
+								+ ".png"));
 
 			} catch (Exception e) {
 				throw new RuntimeException("Employee Image saving failed", e);
@@ -63,13 +72,13 @@ public class ItemController {
 			}
 		}
 
-		
 		itemService.save(item);
 
 		return "successful";
 
 	}
 
+	
 	@RequestMapping("/myitemlist")
 	public String getItemById(Model model, @RequestParam("id") Long userId) {
 
@@ -83,14 +92,17 @@ public class ItemController {
 		// model.addAttribute("item",itemService.find(id));
 		return "itemEdit";
 	}
-	
-	@RequestMapping(value = "/item_update", method = RequestMethod.POST)
-    public String updateBook(@ModelAttribute Item item) {
-      
-      //  itemService.update(item);
-        return "redirect:/itemList";
-    }
-	}
-	
-	
 
+	@RequestMapping(value = "/item_update", method = RequestMethod.POST)
+	public String updateBook(@ModelAttribute Item item) {
+
+		// itemService.update(item);
+		return "redirect:/itemList";
+	}
+
+	@ModelAttribute
+	public void init(Model model) {
+		model.addAttribute("items", itemService.findAll());
+		model.addAttribute("categories", categoryService.findAll());
+	}
+}

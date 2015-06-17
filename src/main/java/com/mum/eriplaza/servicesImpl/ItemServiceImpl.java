@@ -19,6 +19,7 @@ public class ItemServiceImpl implements ItemService {
 	private ItemRepository itemRepo;
 
 	public List<Item> findByFilter(SearchDto filterElements) {
+				
 		return itemRepo.findByFilter(
 				Long.parseLong(filterElements.getCategory()),
 				filterElements.getItemCondition(),

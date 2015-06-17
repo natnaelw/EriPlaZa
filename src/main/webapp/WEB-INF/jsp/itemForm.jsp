@@ -72,7 +72,7 @@
 					<label class="control-label col-lg-2" for="condition">Condition:</label>
 					<div class="col-lg-10">
 						<form:radiobutton path="itemCondition" value="New" />New 
-						<form:radiobutton path="itemCondition" value="Old" />Old 
+						<form:radiobutton path="itemCondition" value="Used" />Used 
 						<form:radiobutton path="itemCondition" value="Refurbished" />Refurbished
 					</div>
 				</div>

@@ -26,12 +26,15 @@ public class HomeController {
 	
 	@RequestMapping(value={"/","/welcome"})
 	public String welcome(Model model,@ModelAttribute("categories") Category category) {
-		List<Category> categories= categoryService.findAll();
-		List<Item> items = itemService.findAll();
-		model.addAttribute("items",items);
-		model.addAttribute("categories",categories);
+		model.addAttribute("image", "E:\\resources\\images\\Mobile.png");
 		model.addAttribute("greeting", "EriPlaZa!");
 		model.addAttribute("tagline", "A classified advertisements and shopping website with sections devoted to jobs, housing, personals, for sale, items wanted and services");
 		return "welcome";
+	}
+	
+	@ModelAttribute
+	public void init(Model model){
+		model.addAttribute("items",itemService.findAll());
+		model.addAttribute("categories",categoryService.findAll());
 	}
 }

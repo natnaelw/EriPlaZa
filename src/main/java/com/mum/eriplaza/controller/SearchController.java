@@ -51,7 +51,7 @@ public class SearchController {
 			return "search";
 		}
 
-		
+		System.out.println("*--"+searchDto.getCategory()+"--"+searchDto.getPrice()+"--"+searchDto.getItemCondition());
 		model.addAttribute("items",itemService.findByFilter(searchDto));
 
 		return "search";
@@ -86,5 +86,9 @@ public class SearchController {
 //		}
 //		
    
-
+	@ModelAttribute
+	public void init(Model model){
+		model.addAttribute("items",itemService.findAll());
+		model.addAttribute("categories",categoryService.findAll());
+	}
 }
