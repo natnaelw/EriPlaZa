@@ -12,7 +12,7 @@
 <body>
 
 
-		<div class="row">
+		<div class="row" >
 			<c:forEach items="${items}" var="item">
 		<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
