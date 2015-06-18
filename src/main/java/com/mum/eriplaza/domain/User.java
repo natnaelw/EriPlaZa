@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
 @Entity
 public class User implements Serializable{
 
@@ -30,7 +31,7 @@ private String fname;
 private String lname;
 private String email;
 private String phone;
-private String username;
+//private String username;
 private String password;
 
 @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -39,6 +40,13 @@ private Address address;
 
 @OneToMany
 private List<Item> items;
+
+
+@OneToOne(fetch=FetchType.LAZY) 
+@JoinColumn(name="USERNAME") 
+private Credentials credentials;
+
+
 
 public long getId() {
 	return id;
@@ -82,18 +90,26 @@ public Address getAddress() {
 public void setAddress(Address address) {
 	this.address = address;
 }
-public String getUsername() {
-	return username;
-}
-public void setUsername(String username) {
-	this.username = username;
-}
+//public String getUsername() {
+//	return username;
+//}
+//public void setUsername(String username) {
+//	this.username = username;
+//}
 public String getPassword() {
 	return password;
 }
 public void setPassword(String password) {
 	this.password = password;
 }
+public Credentials getCredentials() {
+	return credentials;
+}
+public void setCredentials(Credentials credentials) {
+	this.credentials = credentials;
+}
+
+
 
 
 	
