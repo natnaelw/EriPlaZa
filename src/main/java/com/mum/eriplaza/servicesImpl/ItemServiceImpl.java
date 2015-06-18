@@ -42,5 +42,13 @@ public class ItemServiceImpl implements ItemService {
 		return itemRepo.save(item);
 
 	}
+	
+   public List<Item> getAllItems(Long id){
+		
+		return itemRepo.getAllItemsById(id);
+	}
+
+	
+
 
 }

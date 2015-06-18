@@ -1,72 +1,65 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Items</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Items</title> 
+
 </head>
 <body>
-	<section>
-		<div class="jumbotron">
-  			<div class="pull-right" style="padding-right:50px">
-						
+
+   <p>Hello ${user.fname}  <a href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a> </p>
+	<form:form modelAttribute="item" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Add new Item</legend>
+			<div >
+				<label for="category">Category:</label>
+				<form:select id="category" path="category.id">
+					<form:option value="0" label="--Select Category--" />
+					<form:options items="${categories}" itemLabel="name" itemValue="id" />
+					<form:errors path="itemName" cssStyle="color : red;" />
+				</form:select>
+				
 			</div>
-			
-		</div>
-	</section>
-	<section class="container">
-		<form:form class="form-horizontal" modelAttribute="item"  enctype="multipart/form-data" >
-			<fieldset>
-				<legend>Add new Item</legend>
-	
-				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="category">Category:</label>
-					<div class="col-lg-10">
-						
-						 <form:select  id="category" path="category.id" class="form:input-large">
-                        <form:option value="0" label= "--Select Category--" />
-                         <form:options items="${categories}" itemLabel="name" itemValue= "id"/>
- 		 	
- 		 	</form:select>
-						
-					</div>
-				</div>
+			<div>
+				<label  for="name">Item Name:</label>
+				<form:input id="name" path="itemName" />
+			<div style="text-align: center;">
+ 				<form:errors path="itemName" cssStyle="color : red;" /> 
+ 			</div>
+			</div>
+			<div>
+				<label  for="description">Description:</label>
+				<form:textarea id="description" path="description" rows="2" />
+			<div style="text-align: center;">
+ 				<form:errors path="description" cssStyle="color : red;" /> 
+ 			</div>
+			</div>
 
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="name">Item Name:</label>
-					<div class="col-lg-10">
-						<form:input id="name" path="itemName"  class="form:input-large"/>
-						
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="description">Description:</label>
-					<div class="col-lg-10">
-						<form:textarea id="description" path="description" rows = "2"/>
-					</div>
-				</div>
+			<div>
+				<label   for="unitPrice">Unit Price:</label>
+				<form:input id="unitPrice" path="unitPrice"  />
+			<div style="text-align: center;">
+ 				<form:errors path="unitPrice" cssStyle="color : red;" /> 
+ 			</div>
+			</div>
 
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitPrice">Unit Price:</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="unitPrice" path="unitPrice"  class="form:input-large"/>
-							
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInStock">Number Of Items:</label>
-					<div class="col-lg-10">
-						<form:input id="unitsInStock" path="unitsInStock"  class="form:input-large"/>
-					</div>
-				</div>
+			<div>
+				<label  for="unitsInStock">Quantity:</label>
+				<form:input id="unitsInStock" path="unitsInStock" />
+			<div style="text-align: center;">
+ 				<form:errors path="unitsInStock" cssStyle="color : red;" /> 
+ 			</div>
+			</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="condition">Condition:</label>
@@ -85,16 +78,8 @@
 					</div>
 				</div>
 
+		</fieldset>
+	</form:form>
 
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"  />
-					</div>
-					<div id="result"></div>
-				</div>
-				
-			</fieldset>
-		</form:form>
-	</section>
 </body>
 </html>

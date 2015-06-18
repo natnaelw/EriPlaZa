@@ -3,6 +3,7 @@ package com.mum.eriplaza.servicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.domain.User;
 import com.mum.eriplaza.repository.CredentialRepository;
 import com.mum.eriplaza.repository.UserRepository;
@@ -35,10 +36,22 @@ public class UserServicImp implements UserService {
 		urr.save(user);
 	}
 	
+<<<<<<< HEAD
 	
 	public void addNewUser(User user){
 		credentialRepo.save(user.getCredentials());
 		userRepo.save(user);
 	}
+=======
+	public User getUser(Long userId){
+	 return  urr.findOne(userId);
+>>>>>>> branch 'master' of https://github.com/natnaelw/EriPlaza.git
   
+}
+	
+	/*public User getUserById(Long id){
+		return urr.getUserById(id);
+	}*/
+	
+	
 }

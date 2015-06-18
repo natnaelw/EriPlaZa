@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,37 +12,35 @@
 <title>MyList</title>
 </head>
 <body>
-<h1>Posted Items</h1>
 
-<!-- Query Parameter passing  -->
+
+
   
-<table>
-<tr>
-    <th>Category</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>price</th>
-    <th>Quantity</th>
-    <th>Condition</th>
-</tr>
-<c:forEach items="${items}" var="item">
-    <tr>
-        <td>${item.category.name}</td>
-        <td>${item.itemName}</td>
-        <td>${item.description}</td>
-        <td>${item.unitPrice}</td>
-        <td>${item.unitsInStock}</td>
-        <td>${item.itemCondition}</td>
-        
-        <!-- Spring:url for handling Spring template/@PathVariable -->
-        <spring:url value="/item_edit/{id}"  var="edit" >
-   				<spring:param name="id" value="${item.itemId}" />
- 		</spring:url>
-         
-        <td><a href="${edit}">Edit</a></td>
-    </tr>
-</c:forEach>
-</table>
-</div>
+
+ <p> Hello ${user.fname}   <a href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a></p>
+<p>
+	Posted Items 
+</p>
+			
+			<c:forEach items="${userItem}" var="item">
+				<div class="article" style="padding-bottom: 15px">
+					<div class="thumbnail">
+<%-- 					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/> --%>
+						<div class="caption">
+							<h3>${item.itemName}</h3>
+							<p>${item.description}</p>
+							<p>${item.unitPrice}USD</p>
+							<p>Available ${item.unitsInStock} units in stock</p>
+							<p>
+								<a
+									href="<spring:url value="/edit/item?id=${item.itemId}&userid=${userid}" />"> <span /></span> EDIT
+								</a>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
 </body>
 </html>

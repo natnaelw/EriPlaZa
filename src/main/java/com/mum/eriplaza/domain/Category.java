@@ -3,21 +3,24 @@ package com.mum.eriplaza.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 @Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
     @Id
     @GeneratedValue
+    
     private Long Id;
+    
     private String name;
     
-    @OneToMany
-    @JoinColumn(name="category_Id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Item> items;
     
 
@@ -25,8 +28,8 @@ public class Category implements Serializable {
 		return items;
 	}
 
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void addItems(Item item) {
+		items.add(item);
 	}
 
 	public Category() {

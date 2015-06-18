@@ -3,17 +3,14 @@ package com.mum.eriplaza.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;	
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mum.eriplaza.domain.Address;
 import com.mum.eriplaza.domain.User;
-import com.mum.eriplaza.domain.UserDto;
 import com.mum.eriplaza.services.CategoryService;
 import com.mum.eriplaza.services.ItemService;
 import com.mum.eriplaza.services.UserService;
@@ -23,7 +20,7 @@ public class LoginController {
 	
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	CategoryService categoryService;
 	
@@ -45,12 +42,12 @@ public class LoginController {
 	return "redirect:/welcome";
 	}
 		
-	@RequestMapping(value="/usersHome",method=RequestMethod.GET)
-	public String List()
-	{
-		return "usersHome";
-	}
-	
+//	@RequestMapping(value="/usersHome",method=RequestMethod.GET)
+//	public String List()
+//	{
+//		return "usersHome";
+//	}
+//	
 	@RequestMapping(value="/registration", method=RequestMethod.GET)
 	public String signup(@ModelAttribute("newUser")User user){
 		
@@ -59,7 +56,8 @@ public class LoginController {
 	
 	@RequestMapping(value="/registration", method=RequestMethod.POST)
 	public String processSignUp(@Valid @ModelAttribute("newUser")User user,BindingResult result){
-		if(result.hasErrors()){
+		if(result.hasErrors())
+		{
 			return "registration";
 		}
 		

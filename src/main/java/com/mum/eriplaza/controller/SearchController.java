@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.domain.SearchDto;
 import com.mum.eriplaza.services.CategoryService;
 import com.mum.eriplaza.services.ItemService;
@@ -26,9 +27,11 @@ public class SearchController {
 	@Autowired
 	ItemService itemService;
 
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String search(@ModelAttribute("searchDto") SearchDto searchDto,BindingResult result,Model model) {
-
+	
+	
+	@RequestMapping("/search")
+	public String search(Model model,@ModelAttribute Item item){
+		model.addAttribute("items", itemService.findItemsByCategory(Long.parseLong("1")));
 		model.addAttribute("categories", categoryService.findAll());
 		return "search";
 	}
