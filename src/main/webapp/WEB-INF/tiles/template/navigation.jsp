@@ -11,4 +11,5 @@
 <li><a href="<spring:url value="/items/add"/>">Add Item</a></li>
 <li><a href="<spring:url value="/search"/>">Search</a></li>
 <li><a href="<spring:url value="/login"/>">Login</a></li>
+<li><a href="<spring:url value="/items/add/?id=1"/>">Item Test</a></li>
 </ul>

@@ -5,12 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -23,15 +26,20 @@ public class Item implements Serializable{
 	
 	    @Id
 	    @GeneratedValue
-		private Long itemId;	
+		private Long itemId;
+	    @NotEmpty(message="Name is Required")
 		private String itemName;
+	    @NotEmpty(message="Description is Required")
 		private String description;
-		@ManyToOne
+	    @ManyToOne
+	    @Valid
 		private Category category;
-		private double unitPrice;
+		@NotNull (message=" Item Must Have a Price")
+		private Double unitPrice;
 		@JsonIgnore
 		@Transient
 		private MultipartFile  itemImage;
+		@Min(1)
 		private long unitsInStock;
 		private String itemCondition; 
 		private String itemPath;
@@ -74,11 +82,11 @@ public class Item implements Serializable{
 			this.category = category;
 		}
 
-		public double getUnitPrice() {
+		public Double getUnitPrice() {
 			return unitPrice;
 		}
 
-		public void setUnitPrice(double unitPrice) {
+		public void setUnitPrice(Double unitPrice) {
 			this.unitPrice = unitPrice;
 		}
 

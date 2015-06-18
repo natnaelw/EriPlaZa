@@ -31,7 +31,7 @@ private String password;
 @JoinColumn(name="addressid")
 private Address address;
 
-@OneToMany
+@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 private List<Item> items;
 
 public long getId() {
@@ -40,8 +40,8 @@ public long getId() {
 public List<Item> getItems() {
 	return items;
 }
-public void setItems(List<Item> items) {
-	this.items = items;
+public void addItems(Item item) {
+	items.add(item);
 }
 public void setId(long id) {
 	this.id = id;

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mum.eriplaza.domain.Category;
+import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.repository.CategoryRepository;
 import com.mum.eriplaza.services.CategoryService;
 
@@ -25,8 +26,15 @@ public class CategoryServiceImpl implements CategoryService {
 			return (List<Category>)categoryRepository.findAll();
 		}
 
-
+		public Category  saveCategory(Category category) {
+			return categoryRepository.save(category);
+			
+		}
 		
-	}
+		public Category find(Long catId){
+			return categoryRepository.findOne(catId);
+		}
+}
+
 
 

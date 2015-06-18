@@ -3,6 +3,7 @@ package com.mum.eriplaza.servicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.domain.User;
 import com.mum.eriplaza.repository.UserRepository;
 import com.mum.eriplaza.services.UserService;
@@ -22,5 +23,15 @@ public class UserServicImp implements UserService {
 		// TODO Auto-generated method stub
 		urr.save(user);
 	}
+	
+	public User getUser(Long userId){
+	 return  urr.findOne(userId);
   
+}
+	
+	/*public User getUserById(Long id){
+		return urr.getUserById(id);
+	}*/
+	
+	
 }

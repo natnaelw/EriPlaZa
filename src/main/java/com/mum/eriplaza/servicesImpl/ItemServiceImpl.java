@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mum.eriplaza.domain.Item;
+
 import com.mum.eriplaza.repository.ItemRepository;
 import com.mum.eriplaza.services.ItemService;
 
@@ -37,17 +38,12 @@ public class ItemServiceImpl implements ItemService {
 		
 	}
 	
-//	public List<Item> getAllItems(Long id){
-//		
-//		return itemRepository.getAllItemsById(id);
-//	}
-//	
-	//public Item find(Long id){
-		// return itemRepo.findOne(id);
+   public List<Item> getAllItems(Long id){
 		
-//	}
-	//public Item update(Item item ){
-	//	return itemRepo.update(item);
-	//}
+		return itemRepo.getAllItemsById(id);
+	}
+
+	
+
 
 }

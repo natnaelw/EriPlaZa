@@ -1,51 +1,64 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Items</title>
+
+<title>Items</title> 
+
 </head>
 <body>
 
-
+   <p>Hello ${user.fname}  <a href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a> </p>
 	<form:form modelAttribute="item" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Add new Item</legend>
-
-
-			<div>
+			<div >
 				<label for="category">Category:</label>
 				<form:select id="category" path="category.id">
 					<form:option value="0" label="--Select Category--" />
 					<form:options items="${categories}" itemLabel="name" itemValue="id" />
-
+					<form:errors path="itemName" cssStyle="color : red;" />
 				</form:select>
-
-
+				
 			</div>
-
 			<div>
-				<label for="name">Item Name:</label>
+				<label  for="name">Item Name:</label>
 				<form:input id="name" path="itemName" />
+			<div style="text-align: center;">
+ 				<form:errors path="itemName" cssStyle="color : red;" /> 
+ 			</div>
 			</div>
 			<div>
-				<label for="description">Description:</label>
+				<label  for="description">Description:</label>
 				<form:textarea id="description" path="description" rows="2" />
+			<div style="text-align: center;">
+ 				<form:errors path="description" cssStyle="color : red;" /> 
+ 			</div>
 			</div>
 
 			<div>
-				<label for="unitPrice">Unit Price:</label>
-				<form:input id="unitPrice" path="unitPrice" class="form:input-large" />
+				<label   for="unitPrice">Unit Price:</label>
+				<form:input id="unitPrice" path="unitPrice"  />
+			<div style="text-align: center;">
+ 				<form:errors path="unitPrice" cssStyle="color : red;" /> 
+ 			</div>
 			</div>
 
 			<div>
-				<label for="unitsInStock">Quantity:</label>
-				<form:input id="unitsInStock" path="unitsInStock"
-					class="form:input-large" />
+				<label  for="unitsInStock">Quantity:</label>
+				<form:input id="unitsInStock" path="unitsInStock" />
+			<div style="text-align: center;">
+ 				<form:errors path="unitsInStock" cssStyle="color : red;" /> 
+ 			</div>
 			</div>
 
 			<div>
@@ -55,8 +68,6 @@
 				New
 				<form:radiobutton path="itemCondition" value="Old" />
 				Old
-				<form:radiobutton path="itemCondition" value="Refurbished" />
-				Refurbished
 
 			</div>
 
@@ -65,7 +76,7 @@
 				<form:input id="itemImage" path="itemImage" type="file" />
 			</div>
 			<div>
-				<input type="submit" id="btnAdd" class="btn btn-primary" value="Add" />
+				<input type="submit" id="btnAdd"  value="Add" />
 			</div>
 
 		</fieldset>
