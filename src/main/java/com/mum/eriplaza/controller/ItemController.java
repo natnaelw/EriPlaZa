@@ -1,7 +1,6 @@
 package com.mum.eriplaza.controller;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,14 +36,20 @@ public class ItemController {
 	@Autowired
 	private UserService userService;
 	
+	
+	@RequestMapping(value="/userpage", method = RequestMethod.GET)
+	public String userPage(Model model , @RequestParam("id") String userId) {
+
+		model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
+		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
+     
+		return "usersHome";
+	}
+	
 
 	@RequestMapping(value = "/items/add", method = RequestMethod.GET)
 	public String inputItem(@ModelAttribute Item item, @RequestParam("id") String userId, Model model) {
 		
-		model.addAttribute("categories", categoryService.findAll());
-		
-		List<Item> items = itemService.findAll();
-		model.addAttribute("items",items);
 		model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
 		
 		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
@@ -69,16 +74,12 @@ public class ItemController {
 				 item.setItemPath("E:\\resources\\images\\" + item.getItemName() + ".png");
 
 			} catch (Exception e) {
-				throw new RuntimeException("Employee Image saving failed", e);
+				throw new RuntimeException("Item Image saving failed", e);
 			}
 		}
-		
-		
+				
 		Category cat = categoryService.find(item.getCategory().getId());
 		
-		/*cat.addItems(item);
-		categoryService.saveCategory(cat);
-		*/
 		cat.addItems(item);
 		User user=userService.getUser(Long.parseLong(id));
 		user.addItems(item);
@@ -86,66 +87,34 @@ public class ItemController {
 		userService.saveUser(user);
 		
         model.addAttribute("success" ,"item has been succesfully added to Your List");
-        
-        List<Item> items = itemService.findAll();
-		model.addAttribute("items",items);
 		model.addAttribute("user",userService.getUser(Long.parseLong(id)));
-		
 		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(id)));
        
-		return "userHome";
+		return "usersHome";
 
 	}
 	
-	@RequestMapping(value="/userpage", method = RequestMethod.GET)
-	public String userPage(Model model , @RequestParam("id") String userId) {
-
-		List<Item> items = itemService.findAll();
-		model.addAttribute("items",items);
-		model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
-		
-		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
-       
-	    
-		return "userHome";
-	}
 	
-	@RequestMapping(value="/myitemlist", method = RequestMethod.GET)
-	public String getItemById(Model model , @RequestParam("id") String userId) {
-
-	    model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
-	    model.addAttribute("userid",userId);
-	    model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
-	    
-		return "itemList";
-	}
-
 	@RequestMapping(value = "/edit/item" , method = RequestMethod.GET)
 	public String editItem(Item item ,Model model,@RequestParam("id") String id ,@RequestParam("userid") String userid) {
-		   
-	   model.addAttribute("categories", categoryService.findAll());	   
+		    	   
 	   model.addAttribute("edititems" ,itemService.find(Long.parseLong(id)));
-	   
-	   List<Item> items = itemService.findAll();
-	   model.addAttribute("items",items);
 	   model.addAttribute("user",userService.getUser(Long.parseLong(userid)));
 	   model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userid)));
-	   
-	   
+	      
 		return "itemEdit";
 	}
+	
 	
 	@RequestMapping(value = "/edit/item", method = RequestMethod.POST)
     public String editItem(@Valid @ModelAttribute Item item ,BindingResult result,@RequestParam("id") String id,@RequestParam("userid")String userid ,Model model) {
 		
-		if(result.hasErrors()){
-			model.addAttribute("categories", categoryService.findAll());	   
+		if(result.hasErrors()){	   
 		    model.addAttribute("edititems" ,itemService.find(Long.parseLong(id)));
 			
 			return "itemEdit";
 		}
 		
- 
 		Item newitem=itemService.find(Long.parseLong(id));	
 		
 		newitem.setCategory(item.getCategory());
@@ -155,21 +124,31 @@ public class ItemController {
 		newitem.setUnitPrice(item.getUnitPrice());
 		newitem.setItemPath(item.getItemPath());
 		newitem.setUnitsInStock(item.getUnitsInStock());
-		
-		
+			
 		itemService.save(newitem);
-		
-		
-		List<Item> items = itemService.findAll();
-		model.addAttribute("items",items);
+			
 		model.addAttribute("user",userService.getUser(Long.parseLong(userid)));
 		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userid)));
 		
-		return "userHome";
-
-
+		return "usersHome";
 	
 	}
+	@RequestMapping(value="/myitemlist", method = RequestMethod.GET)
+	public String getItemById(Model model , @RequestParam("id") String userId) {
+
+	    model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
+	    model.addAttribute("userid",userId);
+	    model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
+	    
+		return "itemList";
+	}
+	
+	 @ModelAttribute
+	 public void init(Model model){
+		 model.addAttribute("items",itemService.findAll());
+		 model.addAttribute("categories", categoryService.findAll());	 
+	 }
+
 }
 	
 	

@@ -12,75 +12,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Items</title> 
+<title>Items</title>
 
 </head>
 <body>
 
-   <p>Hello ${user.fname}  <a href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a> </p>
+	<p>
+		Hello ${user.fname} <a
+			href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a>
+	</p>
+<table>
 	<form:form modelAttribute="item" enctype="multipart/form-data">
-		<fieldset>
-			<legend>Add new Item</legend>
-			<div >
-				<label for="category">Category:</label>
-				<form:select id="category" path="category.id">
-					<form:option value="0" label="--Select Category--" />
-					<form:options items="${categories}" itemLabel="name" itemValue="id" />
-					<form:errors path="itemName" cssStyle="color : red;" />
-				</form:select>
-				
-			</div>
-			<div>
-				<label  for="name">Item Name:</label>
-				<form:input id="name" path="itemName" />
-			<div style="text-align: center;">
- 				<form:errors path="itemName" cssStyle="color : red;" /> 
- 			</div>
-			</div>
-			<div>
-				<label  for="description">Description:</label>
-				<form:textarea id="description" path="description" rows="2" />
-			<div style="text-align: center;">
- 				<form:errors path="description" cssStyle="color : red;" /> 
- 			</div>
-			</div>
 
-			<div>
-				<label   for="unitPrice">Unit Price:</label>
-				<form:input id="unitPrice" path="unitPrice"  />
-			<div style="text-align: center;">
- 				<form:errors path="unitPrice" cssStyle="color : red;" /> 
- 			</div>
-			</div>
+		
 
-			<div>
-				<label  for="unitsInStock">Quantity:</label>
-				<form:input id="unitsInStock" path="unitsInStock" />
-			<div style="text-align: center;">
- 				<form:errors path="unitsInStock" cssStyle="color : red;" /> 
- 			</div>
-			</div>
+		<label for="category">Category:</label>
+		<form:select id="category" path="category.id">
+			<form:option value="0" label="--Select Category--" />
+			<form:options items="${categories}" itemLabel="name" itemValue="id" />
+			<form:errors path="itemName" cssStyle="color : red;" />
+		</form:select>
+		
+				<label for="name">Item Name:</label>
+		<form:input id="name" path="itemName" />
 
-			<div>
-				<label for="condition">Condition:</label>
+		<form:errors path="itemName" cssStyle="color : red;" />
 
-				<form:radiobutton path="itemCondition" value="New" />
+		<label for="description">Description:</label>
+		<form:textarea id="description" path="description" rows="2" />
+
+		<form:errors path="description" cssStyle="color : red;" />
+
+		<label for="unitPrice">Unit Price:</label>
+		<form:input id="unitPrice" path="unitPrice" />
+
+		<form:errors path="unitPrice" cssStyle="color : red;" />
+
+		<label for="unitsInStock">Quantity:</label>
+		<form:input id="unitsInStock" path="unitsInStock" />
+
+		<form:errors path="unitsInStock" cssStyle="color : red;" />
+
+		<label for="condition">Condition:</label>
+
+		<form:radiobutton path="itemCondition" value="New" />
 				New
 				<form:radiobutton path="itemCondition" value="Old" />
 				Old
 
-			</div>
-
-			<div>
 				<label for="itemImage">Image:</label>
-				<form:input id="itemImage" path="itemImage" type="file" />
-			</div>
-			<div>
-				<input type="submit" id="btnAdd"  value="Add" />
-			</div>
+		<form:input id="itemImage" path="itemImage" type="file" />
+		
+			<input type="submit" id="btnAdd" value="Add" />
+		
 
-		</fieldset>
+	
 	</form:form>
+	</table>
 
 </body>
 </html>

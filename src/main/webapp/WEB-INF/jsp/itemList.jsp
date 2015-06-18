@@ -14,14 +14,10 @@
 <body>
 
 
-
-  
-
  <p> Hello ${user.fname}   <a href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a></p>
 <p>
-	Posted Items 
-</p>
-			
+	Posted Items :
+</p>	
 			<c:forEach items="${userItem}" var="item">
 				<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
