@@ -10,7 +10,7 @@
 <title><spring:message code="label.form.title"></spring:message></title>
 </head>
 <body>
-<form:form modelAttribute="user" method="POST" enctype="utf8">
+<form:form modelAttribute="newUser" method="POST" enctype="utf8">
 <table>
 <tr>
 <td><label><spring:message code="label.user.firstName"></spring:message>:&nbsp;</label>
@@ -52,29 +52,11 @@
 </tr>
 
 <tr>
-<td><label><spring:message code="label.user.userName"></spring:message>:&nbsp;</label>
-</td>
-<td>
-<form:input path="username" value="" />
-<form:errors path="username" element="div" />
-</td>
-</tr>
-
-<tr>
-<td><label><spring:message code="label.user.password"></spring:message>:&nbsp;</label>
-</td>
-<td>
-<form:input path="password" value="" type="password" />
-<form:errors path="password" element="div" />
-</td>
-</tr>
-
-<tr>
 <td><label><spring:message code="label.user.address.str"></spring:message>:&nbsp;</label>
 </td>
 <td>
-<form:input path="street" value="" type="street" />
-<form:errors element="div" />
+<form:input path="address.street" value="" type="text" />
+<form:errors path="address.street" element="div" />
 </td>
 </tr>
 
@@ -82,8 +64,8 @@
 <td><label><spring:message code="label.user.address.state"></spring:message>:&nbsp;</label>
 </td>
 <td>
-<form:input path="state" value="" type="state" />
-<form:errors element="div" />
+<form:input path="address.state" value="" type="text" />
+<form:errors path="address.state" element="div" />
 </td>
 </tr>
 
@@ -91,131 +73,67 @@
 <td><label><spring:message code="label.user.address.zip"></spring:message>:&nbsp;</label>
 </td>
 <td>
-<form:input path="zipcode" value="" type="zipcode" />
-<form:errors element="div" />
+<form:input path="address.zipcode" value="" type="text" />
+<form:errors path="address.zipcode" element="div" />
 </td>
 </tr>
 <tr>
 <td>
-<button type="submit"><spring:message code="label.form.submit"></spring:message></button>
+<!-- <label class="control-label col-lg-2" for="authority">Role</label> -->
+<form:hidden path="credentials.authority[0].authority"  value="ROLE_USER" />
+<%-- <form:errors path="credentials.authority[0].authority" cssClass="text-danger"/> --%>
+</td>
+<tr>
+<td>
+<form:hidden path="credentials.enabled" value="TRUE"  />
 </td>
 </tr>
+<tr>
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td><label><spring:message code="label.user.userName"></spring:message>:&nbsp;</label>
+</td>
+<td>
+<form:input path="credentials.username" value="" />
+<form:errors path="credentials.username" element="div" />
+</td>
+</tr>
+
+<tr>
+<td><label><spring:message code="label.user.password"></spring:message>:&nbsp;</label>
+</td>
+<td>
+<form:input path="credentials.password" value="" type="password" />
+<form:errors path="password" element="div" />
+</td>
+</tr>
+
+<tr>
+<td><label><spring:message code="label.user.verifyPassword"></spring:message>:&nbsp;</label>
+</td>
+<td>
+<form:input path="credentials.verifyPassword" value="" type="password" />
+<form:errors path="credentials.verifyPassword" element="div" />
+</td>
+</tr>
+
 </table>
 
+<p align="justify">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" value="Submit" tabindex="5">
+</p>
 </form:form>
 
 
+</body>
 
 
-
-<!--     <H1> -->
-<%--         <spring:message code="label.form.title"></spring:message> --%>
-<!--     </H1> -->
-<%--     <form:form modelAttribute="user" method="POST" enctype="utf8"> --%>
-<!--         <br> -->
-<!--         <p> -->
-<!--         <table> -->
-<!--         <tr> -->
-<%--         <td><label><spring:message code="label.user.firstName"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="fname" value="" /></td> --%>
-<%--         <form:errors path="fname" element="div"/> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--       <br> -->
-<!--       <p> -->
-<!--     <tr> -->
-<%--         <td><label><spring:message code="label.user.lastName"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="lname" value="" /></td> --%>
-<%--         <form:errors path="lname" element="div" /> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--       <br> -->
-<!--       <p> -->
-<!--     <tr> -->
-<%--         <td><label><spring:message code="label.user.email"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="email" value="" /></td> --%>
-<%--         <form:errors path="email" element="div" /> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--       <br> -->
-<!--       <p> -->
-<!--       <tr> -->
-<%--         <td><label><spring:message code="label.user.userName"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="username" value="" /></td> --%>
-<%--         <form:errors path="username" element="div" /> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--       <br> -->
-<!--       <p> -->
-<!--       <tr> -->
-<%--         <td><label><spring:message code="label.user.phone"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="phone" value="" /></td> --%>
-<%--         <form:errors path="phone" element="div" /> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--       <br> -->
-<!--       <p> -->
-<!--     <tr> -->
-<%--         <td><label><spring:message code="label.user.password"></spring:message> --%>
-<!--             </label> -->
-<!--         </td> -->
-<%--         <td><form:input path="password" value="" type="password" /></td> --%>
-<%--         <form:errors path="password" element="div" /> --%>
-<!--     </tr> -->
-<!--     </p> -->
-<!--     <br> -->
-<!--    <p> -->
-<!--   <tr>  -->
-<%--         <td><label><spring:message code="label.user.address.str"></spring:message>  --%>
-<!--             </label>  -->
-<!--         </td>  -->
-<%--       <td><form:input path="street" value="" type="street" /></td>  --%>
-<%--       <form:errors element="div" /> --%>
-<!--    </tr>  -->
-<!--    <br> -->
-<!--    </p> -->
-<!--    <p> -->
-<!--     <tr>  -->
-<%--    <td><label><spring:message code="label.user.address.state"></spring:message>  --%>
-<!--      </label>  -->
-<!--  </td>  -->
-<%--      <td><form:input path="state" value="" type="state" /></td>  --%>
-<%--   <form:errors element="div" />  --%>
-<!-- </tr>  -->
-<!-- </br> -->
-<!-- </p> -->
-<!-- <p> -->
-
-<!--    <tr>  -->
-<%--     <td><label><spring:message code="label.user.address.zip"></spring:message>  --%>
-<!--       </label>  -->
-<!--    </td>  -->
-<%--   <td><form:input path="zipcode" value="" type="zipcode" /></td>  --%>
-<%--     <form:errors element="div" />  --%>
-<!--  </tr> -->
-<!--   <br> -->
-<!--   </p> -->
-<!--   </table> -->
-<!--     <p> -->
-<%--         <button type="submit"><spring:message code="label.form.submit"></spring:message> --%>
-<!--         </button> -->
-<%--     </form:form> --%>
-<!--     </p> -->
-<!--     <br> -->
-<!--     <p> -->
-<%--     <a href="<c:url value="login.html" />"> --%>
-<%--         <spring:message code="label.form.loginLink"></spring:message> --%>
-<!--     </a> -->
-<!--     </p> -->
-<!-- </body> -->
 </html>
