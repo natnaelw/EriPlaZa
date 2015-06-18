@@ -14,7 +14,7 @@
 <body>
 <div class="row">
 				<h1> ${greeting} </h1>
-				<p> ${tagline} </p>
+				<p> <h4>${tagline}</h4> </p>
 			<c:forEach items="${items}" var="item">
 				<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
