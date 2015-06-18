@@ -23,6 +23,14 @@
 	
 	<mvc:resources  location="/resources/"  mapping="/resources/**"/>
 	
+	<mvc:interceptors>
+ 		<bean class= "org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="language"/>
+	 	</bean>	 	
+	 	
+<!-- 	 	<bean class="com.mum.eriplaza.interceptors.Interceptor"/> -->
+ 	</mvc:interceptors>
+	
 	
 	<bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
    		<property name="basename" value="messages"/> 

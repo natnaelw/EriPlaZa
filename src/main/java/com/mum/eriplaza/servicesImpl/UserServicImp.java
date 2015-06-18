@@ -5,12 +5,24 @@ import org.springframework.stereotype.Service;
 
 import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.domain.User;
+import com.mum.eriplaza.repository.CredentialRepository;
 import com.mum.eriplaza.repository.UserRepository;
 import com.mum.eriplaza.services.UserService;
 @Service
 public class UserServicImp implements UserService {
+	
 	@Autowired
     private  UserRepository urr;
+	
+	
+	
+	@Autowired 
+	private UserRepository userRepo;
+	
+	@Autowired 
+	private CredentialRepository credentialRepo;
+	
+	
 	@Override
 	public void getUser(User user) {
 		// TODO Auto-generated method stub
@@ -24,6 +36,11 @@ public class UserServicImp implements UserService {
 		urr.save(user);
 	}
 	
+	
+	public void addNewUser(User user){
+		credentialRepo.save(user.getCredentials());
+		userRepo.save(user);
+	}
 	public User getUser(Long userId){
 	 return  urr.findOne(userId);
   

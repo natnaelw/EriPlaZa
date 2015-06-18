@@ -38,10 +38,10 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />
 	</definition>
 	
-		<definition name="itemEdit" extends="baseLayout">
-		<put-attribute name="title" value="Search" />
-		<!-- <put-attribute name="heading" value="Search for your favourite items here!" /> -->
- 		<put-attribute name="body" value="/WEB-INF/jsp/itemEdit.jsp" />
+	<definition name="usersHome" extends="baseLayout">
+		<put-attribute name="title" value="My Home" />
+		<put-attribute name="heading" value="Good Morning" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/usersHome.jsp" />
 	</definition>
 	
 	 	<definition name="items" extends="baseLayout">
@@ -50,23 +50,17 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/items.jsp" />
 	</definition>
 	
-	<definition name="addProduct" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
-		<put-attribute name="heading" value="Products" />
-		<put-attribute name="tagline" value="Product" />
-		<put-attribute name="body" value="/WEB-INF/jsp/addProduct.jsp" />
+		 	<definition name="registration" extends="baseLayout">
+		<put-attribute name="title" value="SignUp" />
+		<put-attribute name="heading" value="Registration Form" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
 	</definition>
 	
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="heading" value="Login" />
-		<put-attribute name="tagline" value="Enter your Credentials" />
+<!-- 		<put-attribute name="tagline" value="Enter your Credentials" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
-	</definition>
-	 	
-	<definition name="productNotFound" extends="baseLayout">
-		<put-attribute name="title" value="Product Exception" />
- 		<put-attribute name="body" value="/WEB-INF/jsp/productNotFound.jsp" />
 	</definition>
 	
 	<definition name="payment" extends="baseLayout">

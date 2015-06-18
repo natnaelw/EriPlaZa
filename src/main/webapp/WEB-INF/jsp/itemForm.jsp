@@ -26,6 +26,7 @@
 
 		
 
+<<<<<<< HEAD
 		<label for="category">Category:</label>
 		<form:select id="category" path="category.id">
 			<form:option value="0" label="--Select Category--" />
@@ -45,26 +46,31 @@
 
 		<label for="unitPrice">Unit Price:</label>
 		<form:input id="unitPrice" path="unitPrice" />
-
 		<form:errors path="unitPrice" cssStyle="color : red;" />
+			<div>
+				<label  for="unitsInStock">Quantity:</label>
+				<form:input id="unitsInStock" path="unitsInStock" />
+			<div style="text-align: center;">
+ 				<form:errors path="unitsInStock" cssStyle="color : red;" /> 
+ 			</div>
+			</div>
 
-		<label for="unitsInStock">Quantity:</label>
-		<form:input id="unitsInStock" path="unitsInStock" />
-
-		<form:errors path="unitsInStock" cssStyle="color : red;" />
-
-		<label for="condition">Condition:</label>
-
-		<form:radiobutton path="itemCondition" value="New" />
-				New
-				<form:radiobutton path="itemCondition" value="Old" />
-				Old
-
-				<label for="itemImage">Image:</label>
-		<form:input id="itemImage" path="itemImage" type="file" />
-		
-			<input type="submit" id="btnAdd" value="Add" />
-		
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="condition">Condition:</label>
+					<div class="col-lg-10">
+						<form:radiobutton path="itemCondition" value="New" />New 
+						<form:radiobutton path="itemCondition" value="Used" />Used 
+						<form:radiobutton path="itemCondition" value="Refurbished" />Refurbished
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="itemImage">Image:</label>
+					<div class="col-lg-10">
+						<form:input id="itemImage" path="itemImage" type="file"
+							class="form:input-large" />
+					</div>
+				</div>
 
 	
 	</form:form>

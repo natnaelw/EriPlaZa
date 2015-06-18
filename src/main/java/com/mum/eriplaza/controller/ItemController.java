@@ -48,8 +48,7 @@ public class ItemController {
 	
 
 	@RequestMapping(value = "/items/add", method = RequestMethod.GET)
-	public String inputItem(@ModelAttribute Item item, @RequestParam("id") String userId, Model model) {
-		
+	public String inputItem(@ModelAttribute Item item, @RequestParam("id") String userId, Model model) {		
 		model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
 		
 		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
@@ -57,6 +56,7 @@ public class ItemController {
 		return "itemForm";
 	}
 
+			
 	@RequestMapping(value = "/items/add", method = RequestMethod.POST)
 	public String saveItem(@Valid @ModelAttribute Item item, BindingResult result ,HttpServletRequest request ,
 			@RequestParam("id") String id,Model model) {
@@ -67,17 +67,34 @@ public class ItemController {
 		}
 		
 		
-		MultipartFile itemImage = item.getItemImage();	
-		if (itemImage != null && !itemImage.isEmpty()) {			
-			try {							    
-				itemImage.transferTo(new File("E:\\resources\\images\\" + item.getItemName() + ".png"));
-				 item.setItemPath("E:\\resources\\images\\" + item.getItemName() + ".png");
+		MultipartFile itemImage = item.getItemImage();
+		//MultipartFile itemImageCopy = item.getItemImage();
 
-			} catch (Exception e) {
-				throw new RuntimeException("Item Image saving failed", e);
+		String rootDirectory = request.getSession().getServletContext()
+				.getRealPath("/");
+
+		if (itemImage != null && !itemImage.isEmpty()) {
+
+			try {
+
+				System.out.println("----" + rootDirectory);
+				
+				
+				item.setItemPath("E:\\resources\\images\\" + item.getItemName()
+						+ ".png");
+//				itemImage.transferTo(new File("E:\\resources\\images\\"
+//						+ item.getItemName() + ".png"));
+				
+				itemImage.transferTo(new File(rootDirectory
+								+ "\\resources\\images\\" + item.getItemName()
+								+ ".png"));
+				
 			}
+         catch (Exception e) {
+			throw new RuntimeException("Employee Image saving failed", e);
 		}
 				
+		}	
 		Category cat = categoryService.find(item.getCategory().getId());
 		
 		cat.addItems(item);
@@ -93,7 +110,6 @@ public class ItemController {
 		return "usersHome";
 
 	}
-	
 	
 	@RequestMapping(value = "/edit/item" , method = RequestMethod.GET)
 	public String editItem(Item item ,Model model,@RequestParam("id") String id ,@RequestParam("userid") String userid) {
@@ -133,6 +149,7 @@ public class ItemController {
 		return "usersHome";
 	
 	}
+
 	@RequestMapping(value="/myitemlist", method = RequestMethod.GET)
 	public String getItemById(Model model , @RequestParam("id") String userId) {
 
@@ -151,5 +168,3 @@ public class ItemController {
 
 }
 	
-	
-

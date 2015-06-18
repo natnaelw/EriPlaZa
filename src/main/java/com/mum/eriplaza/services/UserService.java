@@ -6,8 +6,8 @@ public interface UserService {
 	void getUser(User user);
 	void saveUser(User user);
 	
+	void addNewUser(User user);
 	public User getUser(Long userId);
-	
-	
+
 
 }

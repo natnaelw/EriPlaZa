@@ -12,10 +12,9 @@
 <title>Welcome</title>
 </head>
 <body>
-
 <div class="row">
 				<h1> ${greeting} </h1>
-				<p> ${tagline} </p>
+				<p> <h4>${tagline}</h4> </p>
 			<c:forEach items="${items}" var="item">
 				<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
@@ -27,8 +26,7 @@
 							<p>Available ${item.unitsInStock} units in stock</p>
 							<p>
 								<a
-									href="<spring:url value="/items/item?id=${item.itemId}" />" class="btn btn-primary"> <span
-									class="glyphicon-info-sign glyphicon" /></span> Buy
+									href="<spring:url value="/items/item?id=${item.itemId}" />" class="btn btn-primary"></span> Buy
 								</a>
 							</p>
 
@@ -37,7 +35,7 @@
 				</div>
 			</c:forEach>
 		</div>
-			<a href=" <spring:url value="/registration"/>"  > <spring:message code="label.form.signupLink"></spring:message></a>
+<%-- 			<a href=" <spring:url value="/registration"/>"  > <spring:message code="label.form.signupLink"></spring:message></a> --%>
 	</body>
 	
 

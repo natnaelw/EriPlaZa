@@ -8,8 +8,7 @@
 <ul>
 <li><a href="<spring:url value="/welcome"/>" >Home</a></li>
 <li><a href="<spring:url value="/items/"/>">Items</a></li>
-<li><a href="<spring:url value="/items/add"/>">Add Item</a></li>
 <li><a href="<spring:url value="/search"/>">Search</a></li>
 <li><a href="<spring:url value="/login"/>">Login</a></li>
-<li><a href="<spring:url value="/items/add/?id=1"/>">Item Test</a></li>
+<li><a href="<spring:url value="/registration"/>">SignUp</a></li>
 </ul>
