@@ -21,7 +21,7 @@
 			<property name="paramName" value="language"/>
 	 	</bean>	 	
 	 	
-	 	<bean class="com.mum.eriplaza.interceptors.Interceptor"/>
+<!-- 	 	<bean class="com.mum.eriplaza.interceptors.Interceptor"/> -->
  	</mvc:interceptors>
 	
 	
