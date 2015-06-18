@@ -1,12 +1,13 @@
 package com.mum.eriplaza.controller;
 
 import java.io.File;
-import java.util.List;
+import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mum.eriplaza.domain.Category;
+import com.mum.eriplaza.domain.Credentials;
 import com.mum.eriplaza.domain.Item;
 import com.mum.eriplaza.domain.User;
 import com.mum.eriplaza.services.CategoryService;
@@ -38,11 +40,13 @@ public class ItemController {
 	
 	
 	@RequestMapping(value="/userpage", method = RequestMethod.GET)
-	public String userPage(Model model , @RequestParam("id") String userId) {
+	public String userPage(Model model ,Principal principal ) {
+		
+		String name = principal.getName();
+		
+	    model.addAttribute("user",userService.getUserByName(name));
+	    model.addAttribute("userItem", itemService.getAllItems(userService.getUserByName(name).getId()));
 
-		model.addAttribute("user",userService.getUser(Long.parseLong(userId)));
-		model.addAttribute("userItem", itemService.getAllItems(Long.parseLong(userId)));
-     
 		return "usersHome";
 	}
 	

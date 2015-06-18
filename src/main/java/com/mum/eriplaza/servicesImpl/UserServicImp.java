@@ -46,9 +46,9 @@ public class UserServicImp implements UserService {
   
 }
 	
-	/*public User getUserById(Long id){
-		return urr.getUserById(id);
-	}*/
+	public User getUserByName(String name){
+		return urr.findUserByName(name);
+	}
 	
 	
 }

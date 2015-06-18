@@ -37,7 +37,7 @@
 
 
 		<security:form-login login-page="/login" 
-               default-target-url="/usersHome"    
+               default-target-url="/userpage"    
                always-use-default-target="false"   
                authentication-failure-url="/loginfailed"/>
         <security:logout logout-success-url="/logout"  logout-url= "/doLogout"/>

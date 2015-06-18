@@ -18,19 +18,18 @@
 <!-- 		<put-attribute name="heading" value="EriPlaZa -Heading" /> -->
  		<put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
 	</definition>
-	
-	 <definition name="usersPage" extends="baseLayout">
-		<put-attribute name="title" value="EriPlaza" />
- 		<put-attribute name="heading" value="/WEB-INF/jsp/usersPage.jsp" /> 
-   	<put-attribute name="body" value="/WEB-INF/jsp/usersPage.jsp" />
-	</definition> 
-	
-		<definition name="itemForm" extends="baseLayout">
+		
+		
+	<definition name="itemEdit" extends="baseLayout">
 		<put-attribute name="title" value="EriPlaza" />
 		<!-- <put-attribute name="heading" value="EriPlaZa -Heading" /> -->
- 		<put-attribute name="body" value="/WEB-INF/jsp/itemForm.jsp" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/itemEdit.jsp" />
 	</definition>
-	
+	<definition name="itemList" extends="baseLayout">
+		<put-attribute name="title" value="EriPlaza" />
+		<!-- <put-attribute name="heading" value="EriPlaZa -Heading" /> -->
+ 		<put-attribute name="body" value="/WEB-INF/jsp/itemList.jsp" />
+	</definition>
 	
 	 	<definition name="search" extends="baseLayout">
 		<put-attribute name="title" value="Search" />
@@ -44,6 +43,8 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/usersHome.jsp" />
 	</definition>
 	
+	
+	
 	 	<definition name="items" extends="baseLayout">
 		<put-attribute name="title" value="Items" />
 		<put-attribute name="heading" value="Search for your favourite items here!" />
@@ -54,6 +55,11 @@
 		<put-attribute name="title" value="SignUp" />
 		<put-attribute name="heading" value="Registration Form" />
  		<put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
+	</definition>
+		<definition name="itemFrom" extends="baseLayout">
+		<put-attribute name="title" value="itemAdd" />
+		<put-attribute name="heading" value="itemAdd" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/itemForm.jsp" />
 	</definition>
 	
 	<definition name="login" extends="baseLayout">

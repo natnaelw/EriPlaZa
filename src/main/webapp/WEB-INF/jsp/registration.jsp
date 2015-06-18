@@ -30,9 +30,6 @@
 <form:errors path="lname" element="div" />
 </td>
 </tr>
-
-
-
 <tr>
 <td><label><spring:message code="label.user.email"></spring:message>:&nbsp;</label>
 </td>

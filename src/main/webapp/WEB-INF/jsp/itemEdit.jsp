@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Page</title>
 </head>
 <body>
 	<p>
@@ -17,8 +16,8 @@
 	<form:form modelAttribute="item" enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td><label for="category">Category:</label></td>
-				<td><form:select class="select" id="category"
+				<td><label >Category:</label></td>
+				<td><form:select
 						path="category.id">
 						<form:option value="0" label="--Select Category--" />
 						<form:options items="${categories}" itemLabel="name"
@@ -27,43 +26,43 @@
 			</tr>
 
 			<tr>
-				<td><label for="name">Item Name:</label></td>
-				<td><form:input id="name" path="itemName"
+				<td><label >Item Name:</label></td>
+				<td><form:input  path="itemName"
 						value="${edititems.itemName }" /> <form:errors path="itemName"
 						cssStyle="color : red;" /></td>
 			</tr>
 
 			<tr>
-				<td><label for="description">Description:</label></td>
-				<td><form:input id="description" path="description" rows="2"
+				<td><label >Description:</label></td>
+				<td><form:input  path="description" rows="2"
 						value="${edititems.description}" /> <form:errors
 						path="description" cssStyle="color : red;" /></td>
 			</tr>
 
 			<tr>
-				<td><label for="unitPrice">Unit Price:</label></td>
-				<td><form:input id="unitPrice" path="unitPrice"
+				<td><label >Unit Price:</label></td>
+				<td><form:input  path="unitPrice"
 						value="${edititems.unitPrice }" /> <form:errors path="unitPrice"
 						cssStyle="color : red;" /></td>
 			</tr>
 
 			<tr>
-				<td><label for="unitsInStock">Quantity:</label></td>
-				<td><form:input id="unitsInStock" path="unitsInStock"
+				<td><label >Quantity:</label></td>
+				<td><form:input  path="unitsInStock"
 						value="${edititems.unitsInStock}" /> <form:errors
 						path="unitsInStock" cssStyle="color : red;" /></td>
 			</tr>
 
 			<tr>
-				<td><label for="condition">Condition:</label></td>
+				<td><label>Condition:</label></td>
 				<td><form:radiobutton path="itemCondition" value="New" />New <form:radiobutton
 						path="itemCondition" value="Old" />Used <form:radiobutton
 						path="itemCondition" value="Refurbished" />Refurbished</td>
 			</tr>
 
 			<tr>
-				<td><label for="itemImage">Image:</label></td>
-				<td><form:input id="itemImage" path="itemImage" type="file"
+				<td><label >Image:</label></td>
+				<td><form:input path="itemImage" type="file"
 						value="${edititems.itemPath}" /> <input type="submit" id="btnAdd"
 					value="Save" /></td>
 			</tr>

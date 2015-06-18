@@ -12,9 +12,7 @@
 
 	<section>
 			<div class="container">
-				<h1> FirstName:  ${user.fname}</h1>
-				<h2>LastName:  ${user.lname}</h2>
-				<h3>email:  ${user.email}</h3>
+				Hello Mr.
 			</div>
 			<a href=" <spring:url value="/registration"/>"  > <spring:message code="label.form.signupLink"></spring:message></a>
 	</section>

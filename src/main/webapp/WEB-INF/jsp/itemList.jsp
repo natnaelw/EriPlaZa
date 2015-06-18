@@ -21,7 +21,7 @@
 			<c:forEach items="${userItem}" var="item">
 				<div class="article" style="padding-bottom: 15px">
 					<div class="thumbnail">
-<%-- 					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/> --%>
+					<img src="<c:url value="/resources/images/${item.itemName}"></c:url>" alt="image"  style = "width:100%"/> 
 						<div class="caption">
 							<h3>${item.itemName}</h3>
 							<p>${item.description}</p>

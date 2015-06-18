@@ -30,8 +30,8 @@ public class SearchController {
 	
 	
 	@RequestMapping("/search")
-	public String search(Model model,@ModelAttribute Item item){
-		model.addAttribute("items", itemService.findItemsByCategory(Long.parseLong("1")));
+	public String search(Model model,@ModelAttribute Item item,@ModelAttribute("searchDto")SearchDto searchDto){
+		//model.addAttribute("items", itemService.findItemsByCategory(Long.parseLong("1")));
 		model.addAttribute("categories", categoryService.findAll());
 		return "search";
 	}
