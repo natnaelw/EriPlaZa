@@ -15,45 +15,59 @@
 			href="<spring:url value="/userpage?id=${user.id}" />"> BACK</a>
 	</p>
 	<form:form modelAttribute="item" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td><label for="category">Category:</label></td>
+				<td><form:select class="select" id="category"
+						path="category.id">
+						<form:option value="0" label="--Select Category--" />
+						<form:options items="${categories}" itemLabel="name"
+							itemValue="id" />
+					</form:select></td>
+			</tr>
 
-		<label for="category">Category:</label>
-		<form:select class="select" id="category" path="category.id">
-			<form:option value="0" label="--Select Category--" />
-			<form:options items="${categories}" itemLabel="name" itemValue="id" />
-		</form:select>
+			<tr>
+				<td><label for="name">Item Name:</label></td>
+				<td><form:input id="name" path="itemName"
+						value="${edititems.itemName }" /> <form:errors path="itemName"
+						cssStyle="color : red;" /></td>
+			</tr>
 
-		<label for="name">Item Name:</label>
-		<form:input id="name" path="itemName" value="${edititems.itemName }" />
+			<tr>
+				<td><label for="description">Description:</label></td>
+				<td><form:input id="description" path="description" rows="2"
+						value="${edititems.description}" /> <form:errors
+						path="description" cssStyle="color : red;" /></td>
+			</tr>
 
-		<form:errors path="itemName" cssStyle="color : red;" />
+			<tr>
+				<td><label for="unitPrice">Unit Price:</label></td>
+				<td><form:input id="unitPrice" path="unitPrice"
+						value="${edititems.unitPrice }" /> <form:errors path="unitPrice"
+						cssStyle="color : red;" /></td>
+			</tr>
 
-		<label for="description">Description:</label>
-		<form:input id="description" path="description" rows="2"
-			value="${edititems.description}" />
+			<tr>
+				<td><label for="unitsInStock">Quantity:</label></td>
+				<td><form:input id="unitsInStock" path="unitsInStock"
+						value="${edititems.unitsInStock}" /> <form:errors
+						path="unitsInStock" cssStyle="color : red;" /></td>
+			</tr>
 
-		<form:errors path="description" cssStyle="color : red;" />
+			<tr>
+				<td><label for="condition">Condition:</label></td>
+				<td><form:radiobutton path="itemCondition" value="New" />New <form:radiobutton
+						path="itemCondition" value="Old" />Used <form:radiobutton
+						path="itemCondition" value="Refurbished" />Refurbished</td>
+			</tr>
 
-		<label for="unitPrice">Unit Price:</label>
-		<form:input id="unitPrice" path="unitPrice"
-			value="${edititems.unitPrice }" />
-
-		<form:errors path="unitPrice" cssStyle="color : red;" />
-
-		<label for="unitsInStock">Quantity:</label>
-		<form:input id="unitsInStock" path="unitsInStock"
-			value="${edititems.unitsInStock}" />
-		<form:errors path="unitsInStock" cssStyle="color : red;" />
-
-		<label for="condition">Condition:</label>
-		<form:radiobutton path="itemCondition" value="New" />
-					New
-					<form:radiobutton path="itemCondition" value="Old" />
-					Old
-
-				<label for="itemImage">Image:</label>
-		<form:input id="itemImage" path="itemImage" type="file"
-			value="${edititems.itemPath}" />
-		<input type="submit" id="btnAdd" value="Save" />
+			<tr>
+				<td><label for="itemImage">Image:</label></td>
+				<td><form:input id="itemImage" path="itemImage" type="file"
+						value="${edititems.itemPath}" /> <input type="submit" id="btnAdd"
+					value="Save" /></td>
+			</tr>
+		</table>
 
 
 	</form:form>
