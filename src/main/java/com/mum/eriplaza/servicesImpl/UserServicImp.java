@@ -36,16 +36,13 @@ public class UserServicImp implements UserService {
 		urr.save(user);
 	}
 	
-<<<<<<< HEAD
 	
 	public void addNewUser(User user){
 		credentialRepo.save(user.getCredentials());
 		userRepo.save(user);
 	}
-=======
 	public User getUser(Long userId){
 	 return  urr.findOne(userId);
->>>>>>> branch 'master' of https://github.com/natnaelw/EriPlaza.git
   
 }
 	
