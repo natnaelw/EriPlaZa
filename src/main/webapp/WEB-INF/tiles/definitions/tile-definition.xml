@@ -25,6 +25,12 @@
  		<put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />
 	</definition>
 	
+	<definition name="usersHome" extends="baseLayout">
+		<put-attribute name="title" value="My Home" />
+		<put-attribute name="heading" value="Good Morning" />
+ 		<put-attribute name="body" value="/WEB-INF/jsp/usersHome.jsp" />
+	</definition>
+	
 	 	<definition name="items" extends="baseLayout">
 		<put-attribute name="title" value="Items" />
 		<put-attribute name="heading" value="Search for your favourite items here!" />
