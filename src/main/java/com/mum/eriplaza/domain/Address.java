@@ -1,13 +1,19 @@
 package com.mum.eriplaza.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Address implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6212595579666071819L;
 	@Id
 	@GeneratedValue
 	@Column(name = "ADDRESS_ID")

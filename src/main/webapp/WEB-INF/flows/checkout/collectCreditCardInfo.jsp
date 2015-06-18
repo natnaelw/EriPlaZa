@@ -1,19 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE HTML>
+
 <html>
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<title>Credit Card Details</title>
 </head>
 <body>
+	
 	<form:form modelAttribute="creditCard">
 	<%-- <form:errors path="*" cssClass="alert alert-danger" element="div" /> --%>
-
-	<form:errors path="*" cssClass="alert alert-danger" element="div" />
-	Item : ${item.itemName}<br/>
-	Price: ${item.unitPrice}
-
 		<div class="">
 			<label class="" for="name"> <spring:message
 					code="creditCard.form.type.label" /></label>
@@ -69,9 +68,11 @@
 		</div>
 
 		<div class="">
-			<div class="">
-				<input type="submit" id="btnAdd" class="btn btn-primary" value="Add" />
-			</div>
+			<div class="col-lg-offset-2 col-lg-10">
+						<input type="submit" id="btnAdd" class="btn btn-primary"
+							value="Add" name="_eventId_creditCardInfoCollected" />
+						<button id="btnCancel" class="btn btn-default" name="_eventId_cancel">Cancel</button>
+					</div>
 		</div>
 
 	</form:form>

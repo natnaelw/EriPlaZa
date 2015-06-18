@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mum.eriplaza.domain.Item;
-
+import com.mum.eriplaza.domain.SearchDto;
 import com.mum.eriplaza.repository.ItemRepository;
 import com.mum.eriplaza.services.ItemService;
-
 
 @Service
 @Transactional
@@ -19,23 +18,28 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemRepository itemRepo;
 
-	
-	
-	public List<Item> findAll() {
-		return (List<Item>)itemRepo.findAll();
+	public List<Item> findByFilter(SearchDto filterElements) {
+		return itemRepo.findByFilter(
+				Long.parseLong(filterElements.getCategory()),
+				filterElements.getItemCondition(),
+				Double.parseDouble(filterElements.getPrice()));
 	}
-	
-	public Item find(Long itemId){
+
+	public List<Item> findAll() {
+		return (List<Item>) itemRepo.findAll();
+	}
+
+	public Item find(Long itemId) {
 		return itemRepo.findOne(itemId);
 	}
 
-	public List<Item> findItemsByCategory(Long categoryId){
-		return (List<Item>)itemRepo.findItemsByCategory(categoryId);
+	public List<Item> findItemsByCategory(Long categoryId) {
+		return (List<Item>) itemRepo.findItemsByCategory(categoryId);
 	}
-	
-	public Item  save(Item item) {
+
+	public Item save(Item item) {
 		return itemRepo.save(item);
-		
+
 	}
 	
    public List<Item> getAllItems(Long id){
